@@ -1,0 +1,58 @@
+/*
+  Innovación Maderas — Design Tokens
+  Derivados del logotipo: silueta de árbol en negro sobre metal
+  cepillado bronce/dorado. Paleta cálida y de materiales nobles,
+  pensada para transmitir artesanía, madera y sofisticación.
+*/
+
+:root {
+  /* Color base */
+  --color-black: #0d0b09;         /* negro cálido, no puro — como la silueta del logo */
+  --color-bronze-deep: #6b4f34;   /* sombra del metal cepillado */
+  --color-bronze: #a67c4e;        /* tono medio del degradado del logo */
+  --color-gold: #c9a86a;          /* brillo del metal, acento principal */
+  --color-gold-light: #e6cd9a;    /* highlight del degradado */
+  --color-ivory: #f4efe4;         /* fondo claro para secciones de lectura */
+  --color-white: #ffffff;
+
+  /* Texto */
+  --text-primary: var(--color-black);
+  --text-inverse: var(--color-ivory);
+  --text-muted: #6b6259;
+
+  /* Superficies */
+  --surface-dark: var(--color-black);
+  --surface-metal: linear-gradient(160deg, var(--color-gold-light) 0%, var(--color-bronze) 55%, var(--color-bronze-deep) 100%);
+  --surface-light: var(--color-ivory);
+
+  /* Tipografía */
+  --font-display: "Fraunces", "Georgia", serif;   /* trazo orgánico, ecos del grano de la madera */
+  --font-body: "Work Sans", "Helvetica Neue", sans-serif;
+
+  --step-xs: 0.8rem;
+  --step-sm: 1rem;
+  --step-base: 1.125rem;
+  --step-md: 1.5rem;
+  --step-lg: 2.25rem;
+  --step-xl: 3.5rem;
+  --step-2xl: 5rem;
+
+  /* Espaciado */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  /* Layout */
+  --content-max: 1180px;
+  --content-narrow: 640px;
+  --radius: 2px; /* casi sin redondeo: materiales sólidos, cortes limpios */
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 400ms;
+}
