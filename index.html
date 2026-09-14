@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovación Maderas</title>
-  <meta name="description" content="Innovación Maderas — carpintería y diseño en madera." />
+  <title>Innovación Maderas — Cercas, decks y pérgolas a medida</title>
+  <meta name="description" content="Cercas, decks, pérgolas y carpintería en madera instaladas por expertos. Cotización gratis en menos de 24 horas." />
 
-  <!-- Tipografías (self-host más adelante si se requiere) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -19,22 +18,414 @@
 </head>
 <body>
 
-  <header class="site-header container">
-    <img class="logo" src="assets/images/logo/logo.png" alt="Innovación Maderas" />
-    <!-- Navegación multipágina se agrega en la siguiente etapa -->
+  <header class="site-header">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <img class="logo" src="assets/images/logo/logo.png" alt="Innovación Maderas" />
+      <a class="header-call" data-phone-link href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+        <span data-phone-display>(555) 123-4567</span>
+      </a>
+    </div>
   </header>
 
   <main>
-    <!--
-      Aquí se construirá el hero y las secciones de la landing page
-      en la siguiente etapa, siguiendo los tokens definidos en
-      assets/css/variables.css (paleta bronce/dorado + negro del logo).
-    -->
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="cotizar">
+      <svg class="hero__tree" viewBox="0 0 1024 1024" preserveAspectRatio="xMaxYMin slice" fill="none" stroke="var(--color-black)" stroke-width="26" stroke-linecap="round">
+        <path d="M512 1024 V520 M512 560 C420 440 340 380 220 340 M512 560 C420 460 380 380 320 260 M512 520 C600 440 680 380 800 340 M512 520 C600 460 640 380 700 260" />
+      </svg>
+
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__eyebrow-row">
+            <span class="hero__stars">
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+            </span>
+            <span>4.9 de calificación con más de 300 proyectos entregados</span>
+          </div>
+
+          <h1>Madera que transforma tu espacio exterior</h1>
+          <p class="lede">
+            Cercas, decks, pérgolas y carpintería a medida, diseñadas y
+            construidas por un equipo con más de 15 años de experiencia
+            en tu comunidad.
+          </p>
+
+          <div class="hero__trust">
+            <div class="hero__trust-item">
+              <strong>15+</strong>
+              <span>años construyendo en madera</span>
+            </div>
+            <div class="hero__trust-item">
+              <strong>300+</strong>
+              <span>proyectos entregados</span>
+            </div>
+            <div class="hero__trust-item">
+              <strong>24h</strong>
+              <span>tiempo de respuesta</span>
+            </div>
+            <div class="hero__trust-item">
+              <strong>100%</strong>
+              <span>garantía por escrito</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lead-card">
+          <h2 class="lead-card__title">Cotiza gratis tu proyecto</h2>
+          <p class="lead-card__subtitle">Sin compromiso. Te respondemos en menos de 24 horas.</p>
+
+          <form class="lead-form" id="lead-form">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="(555) 000-0000" required autocomplete="tel" />
+              </div>
+              <div class="field">
+                <label for="zipcode">Código postal</label>
+                <input type="text" id="zipcode" name="zipcode" placeholder="00000" inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="servicio">Servicio requerido</label>
+              <select id="servicio" name="servicio" required>
+                <option value="" selected disabled>Selecciona un servicio</option>
+                <option value="Cercas de madera">Cercas de madera</option>
+                <option value="Decks y terrazas">Decks y terrazas</option>
+                <option value="Pérgolas y kioscos">Pérgolas y kioscos</option>
+                <option value="Carpintería a medida">Carpintería a medida</option>
+                <option value="Reparación y mantenimiento">Reparación y mantenimiento</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Solicitar cotización gratis</button>
+            <p class="lead-form__note">No compartimos tu información con terceros.</p>
+          </form>
+
+          <div class="lead-card__divider">o si prefieres</div>
+
+          <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ESTADÍSTICAS ================= -->
+    <section class="stats">
+      <div class="container">
+        <div class="stat"><strong>15+</strong><span>años de experiencia local</span></div>
+        <div class="stat"><strong>300+</strong><span>proyectos completados</span></div>
+        <div class="stat"><strong>4.9/5</strong><span>calificación promedio</span></div>
+        <div class="stat"><strong>2 años</strong><span>de garantía por escrito</span></div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICIOS ================= -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <h2>Servicios en madera para todo tu exterior</h2>
+          <p>Haz clic en un servicio para preseleccionarlo en el formulario de cotización.</p>
+        </div>
+
+        <div class="services-grid">
+          <button class="service-card" data-service-value="Cercas de madera" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l3-4 3 4v12M11 21V9l3-4 3 4v12M18 21V9l3-4v16"/></svg>
+            <h3>Cercas de madera</h3>
+            <p>Privacidad y seguridad para tu propiedad, con maderas tratadas para resistir el clima.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+
+          <button class="service-card" data-service-value="Decks y terrazas" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M4 20V9l8-5 8 5v11M8 20v-6M12 20v-6M16 20v-6"/></svg>
+            <h3>Decks y terrazas</h3>
+            <p>Espacios al aire libre listos para reunir a tu familia, diseñados a la medida de tu patio.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+
+          <button class="service-card" data-service-value="Pérgolas y kioscos" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M5 8v12M9 8v12M15 8v12M19 8v12M3 8l2-4h14l2 4"/></svg>
+            <h3>Pérgolas y kioscos</h3>
+            <p>Sombra y estilo para tu jardín o terraza, con estructuras firmes y acabados finos.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+
+          <button class="service-card" data-service-value="Carpintería a medida" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l7 7M11 4l-7 7M14 10l7 7-3 3-7-7M17 6l1.5-1.5a2 2 0 1 1 3 3L20 9"/></svg>
+            <h3>Carpintería a medida</h3>
+            <p>Muebles, closets y piezas hechas a la medida de tu espacio y tu estilo.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+
+          <button class="service-card" data-service-value="Reparación y mantenimiento" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3z"/></svg>
+            <h3>Reparación y mantenimiento</h3>
+            <p>Sellado, reemplazo de tablas y reparaciones para que tu estructura dure más años.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+
+          <button class="service-card" data-service-value="Otro" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2.2M12 17h.01"/></svg>
+            <h3>¿Otro proyecto en mente?</h3>
+            <p>Cuéntanos qué necesitas construir o reparar y te decimos cómo ayudarte.</p>
+            <span class="service-cta">Cotizar este servicio</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POR QUÉ ELEGIRNOS ================= -->
+    <section class="section why-section">
+      <div class="container why-grid">
+        <div class="why-visual" role="img" aria-label="Textura de vetas de madera tratada"></div>
+
+        <div>
+          <div class="section-head">
+            <h2>Por qué las familias eligen Innovación Maderas</h2>
+          </div>
+          <div class="why-list">
+            <div class="why-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V7l8-4z"/></svg>
+              <div>
+                <h3>Garantía por escrito</h3>
+                <p>Cada proyecto incluye garantía documentada sobre materiales y mano de obra.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+              <div>
+                <h3>Materiales tratados para clima</h3>
+                <p>Madera seleccionada y tratada para resistir humedad, sol y cambios de temperatura.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+              <div>
+                <h3>Equipo propio y experimentado</h3>
+                <p>Instaladores capacitados, no subcontratistas improvisados.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l6 6L20 6"/></svg>
+              <div>
+                <h3>Presupuesto sin costo ni compromiso</h3>
+                <p>Visitamos tu propiedad, medimos y te damos un precio claro por escrito.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESO ================= -->
+    <section class="section process-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Así de simple es empezar tu proyecto</h2>
+        </div>
+        <div class="process-list">
+          <div class="process-item">
+            <h3>Solicita tu cotización</h3>
+            <p>Completa el formulario o escríbenos por WhatsApp.</p>
+          </div>
+          <div class="process-item">
+            <h3>Visita y medición</h3>
+            <p>Vamos a tu propiedad a evaluar el espacio sin costo.</p>
+          </div>
+          <div class="process-item">
+            <h3>Diseño y presupuesto</h3>
+            <p>Te entregamos una propuesta clara, con precio y tiempos.</p>
+          </div>
+          <div class="process-item">
+            <h3>Instalación</h3>
+            <p>Nuestro equipo construye tu proyecto en el tiempo acordado.</p>
+          </div>
+          <div class="process-item">
+            <h3>Garantía y seguimiento</h3>
+            <p>Te acompañamos después de la entrega con garantía por escrito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ZONA DE COBERTURA ================= -->
+    <section class="section coverage-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>¿Trabajamos en tu zona?</h2>
+          <p>Damos servicio en estas áreas y zonas cercanas. Confirma con tu código postal.</p>
+        </div>
+
+        <div class="coverage-list">
+          <span>Condado Central</span>
+          <span>Zona Norte</span>
+          <span>Zona Sur</span>
+          <span>Área Metropolitana</span>
+          <span>Municipios aledaños</span>
+        </div>
+
+        <form class="coverage-check" id="coverage-form">
+          <input type="text" placeholder="Tu código postal" inputmode="numeric" maxlength="5" aria-label="Código postal" />
+          <button type="submit" class="btn btn--gold">Verificar cobertura</button>
+        </form>
+        <p data-coverage-result hidden style="margin-top: 1rem; max-width: 46ch;"></p>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIOS ================= -->
+    <section class="section" id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <h2>Lo que dicen las familias que ya construyeron con nosotros</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial">
+            <div class="stars">
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+            </div>
+            <p class="quote">Llegaron puntuales, terminaron la cerca en dos días y quedó exactamente como la habíamos platicado.</p>
+            <p class="author"><strong>Marta R.</strong> — Zona Norte</p>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars">
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+            </div>
+            <p class="quote">El deck que nos construyeron cambió por completo el patio. El presupuesto fue justo el que nos dijeron desde el inicio.</p>
+            <p class="author"><strong>Javier P.</strong> — Área Metropolitana</p>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars">
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
+            </div>
+            <p class="quote">Pedimos una pérgola para el jardín y el acabado quedó mejor de lo que esperábamos. Muy recomendados.</p>
+            <p class="author"><strong>Sofía L.</strong> — Condado Central</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Preguntas frecuentes</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>¿Cuánto cuesta una cotización?<span class="icon"></span></summary>
+            <p>Nada. Visitamos tu propiedad, medimos el espacio y te entregamos un presupuesto por escrito sin ningún costo ni compromiso de contratar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto tiempo toma instalar una cerca o un deck?<span class="icon"></span></summary>
+            <p>Depende del tamaño y el tipo de proyecto. Una cerca residencial suele tomar de 1 a 3 días; un deck, de 3 a 7 días. Te damos un tiempo estimado exacto en tu cotización.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué tipo de madera utilizan?<span class="icon"></span></summary>
+            <p>Trabajamos con madera tratada a presión para exteriores, resistente a humedad e insectos, además de opciones de mayor durabilidad según el proyecto y el presupuesto.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Ofrecen garantía?<span class="icon"></span></summary>
+            <p>Sí. Todo proyecto incluye garantía por escrito sobre materiales y mano de obra, con los términos detallados en tu contrato.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿En qué zonas dan servicio?<span class="icon"></span></summary>
+            <p>Cubrimos el Condado Central y las zonas Norte, Sur y Metropolitana, además de municipios aledaños. Verifica tu código postal en la sección de cobertura.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>Construyamos juntos tu próximo proyecto en madera</h2>
+        <p>Solicita tu cotización gratis hoy y recibe respuesta en menos de 24 horas.</p>
+        <div class="final-cta__actions">
+          <a href="#cotizar" class="btn btn--outline">Cotizar mi proyecto</a>
+          <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener" style="width:auto;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="container">
-    <!-- Footer pendiente -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="logo" src="assets/images/logo/logo.png" alt="Innovación Maderas" />
+          <p style="margin-top: var(--space-2); max-width: 40ch;">
+            Cercas, decks, pérgolas y carpintería en madera hechas para durar,
+            con garantía por escrito y equipo propio.
+          </p>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a data-phone-link href="#">Llamar: <span data-phone-display>(555) 123-4567</span></a></li>
+            <li><a data-whatsapp-link href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="mailto:hola@innovacionmaderas.com">hola@innovacionmaderas.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Servicios</h4>
+          <ul>
+            <li>Cercas de madera</li>
+            <li>Decks y terrazas</li>
+            <li>Pérgolas y kioscos</li>
+            <li>Carpintería a medida</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Innovación Maderas. Todos los derechos reservados.</span>
+        <span>Cotizaciones gratis · Respuesta en menos de 24 horas</span>
+      </div>
+    </div>
   </footer>
+
+  <!-- Botón flotante de llamada, visible en todo momento -->
+  <a class="floating-call" data-phone-link href="#" aria-label="Llamar ahora a Innovación Maderas">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+    <span>Llamar ahora</span>
+  </a>
 
   <script src="assets/js/main.js" type="module"></script>
 </body>

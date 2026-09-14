@@ -55,4 +55,13 @@
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 150ms;
   --duration-base: 400ms;
+
+  /* Bordes y sombras */
+  --border-subtle: rgba(13, 11, 9, 0.14);
+  --border-on-dark: rgba(244, 239, 228, 0.22);
+  --shadow-card: 0 24px 60px -32px rgba(13, 11, 9, 0.45);
+
+  /* Marcas de servicio (WhatsApp usa su verde reconocible a propósito) */
+  --color-whatsapp: #2fae5b;
+  --color-whatsapp-dark: #248a48;
 }
