@@ -11,6 +11,20 @@ body {
   background: var(--color-ivory);
 }
 
+/* Textura de grano sutil sobre toda la página — da profundidad a
+   cualquier fondo (oscuro o claro) sin que se note como "efecto". */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 500;
@@ -65,7 +79,32 @@ h1, h2, h3, h4 {
               box-shadow 200ms var(--ease-standard);
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--step-sm);
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+.btn:active { transform: scale(0.98); }
 .btn:hover { box-shadow: 0 14px 30px -16px rgba(13, 11, 9, 0.5); }
+
+.btn--gold { background: var(--color-gold); color: var(--color-black); }
+.btn--gold:hover { background: var(--color-gold-light); }
+
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+}
+.btn--whatsapp:hover { background: var(--color-whatsapp-dark); }
+.btn--whatsapp svg { width: 20px; height: 20px; }
 
 @media (prefers-reduced-motion: reduce) {
   .btn, .floating-btn, .service-cta { transition: background var(--duration-fast) var(--ease-standard); }
