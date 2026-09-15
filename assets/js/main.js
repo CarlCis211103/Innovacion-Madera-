@@ -1,4 +1,4 @@
-// main.js — punto de entrada de la landing page.
+// main.js — punto de entrada, compartido por todas las páginas del sitio.
 
 const CONTACT = {
   phoneDisplay: "(555) 123-4567",
@@ -8,6 +8,8 @@ const CONTACT = {
 
 document.addEventListener("DOMContentLoaded", () => {
   wireContactNumbers();
+  wireHeaderScroll();
+  wireMobileNav();
   wireServiceCardsToForm();
   wireWhatsappMessage();
   wireLeadForm();
@@ -28,9 +30,52 @@ function wireContactNumbers() {
 }
 
 /**
- * Al hacer clic en una tarjeta de servicio, se preselecciona esa opción
- * en el formulario del hero y se hace scroll hacia él — reduce fricción
- * frente a que la persona tenga que buscar la opción en el <select>.
+ * Header integrado: transparente sobre el hero, sólido al hacer scroll.
+ * En páginas sin hero oscuro (ej. futuras subpáginas), marcar el header
+ * con data-force-solid="true" para que se muestre sólido desde el inicio.
+ */
+function wireHeaderScroll() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  if (header.dataset.forceSolid === "true") {
+    header.classList.add("is-scrolled");
+    return;
+  }
+
+  const toggle = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 40);
+  };
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
+}
+
+/**
+ * Menú móvil de pantalla completa.
+ */
+function wireMobileNav() {
+  const toggleBtn = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".mobile-nav");
+  if (!toggleBtn || !nav) return;
+
+  const close = () => {
+    nav.classList.remove("is-open");
+    toggleBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    toggleBtn.setAttribute("aria-expanded", String(isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
+}
+
+/**
+ * Al hacer clic en una tarjeta/servicio, se preselecciona esa opción
+ * en el formulario del hero y se hace scroll hacia él.
  */
 function wireServiceCardsToForm() {
   const serviceSelect = document.getElementById("servicio");
@@ -55,7 +100,7 @@ function wireWhatsappMessage() {
 
   const buildLink = () => {
     const servicio = serviceSelect && serviceSelect.value ? serviceSelect.value : "";
-    const base = "Hola, quiero pedir una cotización con Innovación Maderas.";
+    const base = "Hola, me gustaría agendar una consulta de diseño con Innovación Maderas.";
     const texto = servicio ? `${base} Estoy interesado en: ${servicio}.` : base;
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(texto)}`;
   };
@@ -68,7 +113,7 @@ function wireWhatsappMessage() {
 }
 
 /**
- * Manejo del formulario de cotización del hero.
+ * Manejo del formulario de consulta del hero.
  * NOTA: por ahora simula el envío en el navegador. Para producción,
  * reemplazar el bloque marcado con la llamada real (fetch a tu backend,
  * Formspree, Netlify Forms, etc.).
@@ -92,7 +137,7 @@ function wireLeadForm() {
 
     // ----- Reemplazar este bloque por el envío real -----
     const data = Object.fromEntries(new FormData(form).entries());
-    console.log("Lead capturado:", data);
+    console.log("Consulta capturada:", data);
     // ------------------------------------------------------
 
     showFormSuccess(form);
@@ -107,7 +152,7 @@ function showFormSuccess(form) {
     <h3 class="lead-card__title">¡Gracias! Ya recibimos tu solicitud.</h3>
     <p class="lead-card__subtitle">
       Un especialista de Innovación Maderas te contactará en menos de 24 horas
-      para agendar tu visita de medición gratis.
+      para agendar tu consulta de diseño sin costo.
     </p>
   `;
 }
@@ -127,7 +172,7 @@ function wireCoverageCheck() {
 
     const isValidZip = /^\d{5}$/.test(input.value.trim());
     result.textContent = isValidZip
-      ? "¡Buenas noticias! Trabajamos en tu zona. Completa el formulario de arriba para tu cotización gratis."
+      ? "¡Buenas noticias! Damos servicio en tu zona. Completa el formulario de arriba para tu consulta de diseño."
       : "Ingresa un código postal válido de 5 dígitos.";
     result.hidden = false;
   });

@@ -1,51 +1,94 @@
 # Innovación Maderas — Sitio web
 
-Estructura base para el sitio (landing page ahora, multipágina más adelante).
-Tecnología: HTML, CSS y JavaScript puro. Sin frameworks ni build step, para
-poder subir directo a GitHub Pages / Netlify / hosting estático cuando esté listo.
+Landing page de ebanistería especializada en maderas finas, orientada al
+cliente residencial premium (B2C). HTML, CSS y JavaScript puro, sin
+frameworks ni build step.
 
 ## Estructura de carpetas
 
 ```
 innovacion-maderas/
-├── index.html                 → Landing page (página de inicio)
-├── pages/                     → Futuras páginas internas (nosotros, productos, contacto, etc.)
+├── index.html                  → Landing page principal (B2C)
+├── pages/
+│   └── profesionales.html      → Placeholder para B2B (arquitectos, contratistas, diseñadores)
 ├── assets/
 │   ├── css/
-│   │   ├── variables.css      → Tokens de diseño (color, tipografía, espaciado)
-│   │   ├── reset.css          → Reset base del navegador
-│   │   ├── main.css           → Estilos globales compartidos
-│   │   └── pages/             → Un archivo CSS por página (ej. home.css)
+│   │   ├── variables.css       → Tokens de diseño (color, tipografía, espaciado)
+│   │   ├── reset.css           → Reset base del navegador
+│   │   ├── main.css            → Header integrado, menú móvil, botones flotantes (compartido)
+│   │   └── pages/home.css      → Estilos exclusivos de la landing page
 │   ├── js/
-│   │   ├── main.js            → Punto de entrada JS
-│   │   └── modules/           → Módulos futuros (animaciones, navegación, etc.)
+│   │   ├── main.js             → Header al hacer scroll, formulario, WhatsApp, menú móvil
+│   │   └── modules/            → Para futuros scripts (animaciones adicionales)
 │   ├── images/
-│   │   ├── logo/              → Logotipo en sus distintas versiones
-│   │   └── content/           → Fotografías de producto/proyectos
-│   └── fonts/                 → Tipografías auto-hospedadas (si se decide no usar Google Fonts)
+│   │   ├── logo/                → Logotipo
+│   │   └── content/              → Fotos/renders reales de proyectos (pendiente)
+│   └── fonts/
 └── README.md
 ```
 
-## Dirección visual (a partir del logotipo)
+## Posicionamiento
 
-El logo es una silueta de árbol en negro sobre metal cepillado bronce/dorado.
-Los tokens en `assets/css/variables.css` parten de ahí:
+Ebanistería especializada — no carpintería de construcción genérica.
+Diseñamos, fabricamos e instalamos con equipo propio: cocinas a la medida,
+walk-in closets y centros de entretenimiento en maderas finas, para clientes
+residenciales de alto nivel en Matamoros, Brownsville, Harlingen, McAllen,
+San Juan y el resto del Valle del Río Grande.
 
-- **Negro cálido** `#0d0b09` — silueta, texto principal.
-- **Bronce/dorado** `#a67c4e`, `#c9a86a`, `#e6cd9a` — degradado del metal, acentos.
-- **Marfil** `#f4efe4` — fondo de secciones de lectura.
-- **Tipografía**: `Fraunces` (display, con textura orgánica que evoca el grano
-  de la madera) + `Work Sans` (texto, limpia y legible).
-- Radios de borde casi nulos: materiales sólidos, cortes limpios, sin
-  redondeos genéricos de "tarjeta SaaS".
+Esta página está centrada en el cliente B2C (propietarios). La ruta B2B
+(arquitectos, diseñadores, contratistas, constructores) tendrá su propia
+experiencia dedicada en `pages/profesionales.html`, que hoy es un
+placeholder de "próximamente" con contacto directo.
 
-## Próximos pasos
+## Dirección visual
 
-1. Construir el hero y las secciones de la landing page en `index.html`
-   dentro de `home.css`, usando los tokens ya definidos.
-2. Diseñar copy real (quiénes son, qué hacen, productos/servicios, contacto).
-3. Agregar fotografías reales de producto en `assets/images/content/`.
-4. Convertir `pages/` en páginas reales (ej. `pages/nosotros.html`,
-   `pages/productos.html`, `pages/contacto.html`) reutilizando header/footer.
-5. Incorporar animaciones (scroll reveal, micro-interacciones) en
-   `assets/js/modules/` una vez esté el contenido base.
+- **Hero tipo showroom**: fondo casi negro con resplandor dorado difuso
+  (`--surface-showroom`), en vez de metal brillante a pantalla completa —
+  más acorde a un posicionamiento de lujo.
+- **Header integrado**: transparente sobre el hero, se vuelve sólido con
+  leve desenfoque al hacer scroll (`assets/js/main.js → wireHeaderScroll`).
+  En páginas sin hero oscuro, agregar `data-force-solid="true"` al
+  `<header class="site-header">` para que aparezca sólido desde el inicio
+  (ya aplicado en `pages/profesionales.html`).
+- **Paleta**: negro cálido, bronce y dorado (del logotipo), marfil para
+  lectura. Tipografía `Fraunces` (display) + `Work Sans` (texto).
+- **Servicios presentados de forma editorial**, no como grid de specs:
+  cada tarjeta de servicio tiene una imagen protagonista + descripción.
+- **Muestrario de maderas** y **franja de renders 3D** como diferenciadores
+  visuales, alineados al modelo de comercialización de la marca.
+
+## Elementos de conversión
+
+- Formulario del hero: nombre, teléfono, email, código postal, servicio.
+- Botón de WhatsApp junto al formulario (mensaje pre-armado según el
+  servicio seleccionado).
+- Botones flotantes de **llamada** y **WhatsApp**, visibles en todo momento
+  (`assets/css/main.css → .floating-actions`).
+- Las tarjetas de servicio, al hacer clic, preseleccionan la opción en el
+  formulario y hacen scroll hacia él.
+
+## Pendiente antes de publicar
+
+- **Contacto real**: editar el objeto `CONTACT` en `assets/js/main.js`
+  (teléfono, WhatsApp) y el correo en el footer de `index.html` y
+  `pages/profesionales.html`.
+- **Envío del formulario**: hoy solo simula el envío en el navegador
+  (bloque marcado con `NOTA` en `main.js`). Conectar a Formspree, Netlify
+  Forms o backend propio.
+- **Fotografías/renders reales**: reemplazar los placeholders de
+  `.service-feature__media` y `.portfolio-card` (actualmente degradados de
+  color) por fotografías o renders reales de proyectos.
+- **Subpágina de profesionales**: `pages/profesionales.html` es un
+  placeholder; construir la experiencia B2B completa (portafolio técnico,
+  capacidades de fabricación, proceso de trabajo conjunto) como siguiente
+  fase.
+- Confirmar si la marca se escribe "Innovación Madera" (como en el modelo
+  de comercialización) o "Innovación Maderas" (como en el sitio actual) —
+  hoy el sitio usa la versión en plural.
+
+## Próximos pasos sugeridos
+
+1. Sustituir placeholders visuales por fotografía/renders reales.
+2. Conectar el formulario a un sistema real de captación de leads.
+3. Construir `pages/profesionales.html` como experiencia B2B completa.
+4. Considerar version en inglés dado el mercado bilingüe (RGV).

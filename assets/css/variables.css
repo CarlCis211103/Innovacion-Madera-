@@ -25,6 +25,15 @@
   --surface-metal: linear-gradient(160deg, var(--color-gold-light) 0%, var(--color-bronze) 55%, var(--color-bronze-deep) 100%);
   --surface-light: var(--color-ivory);
 
+  /* Showroom oscuro: fondo del hero y del header integrado.
+     Base casi negra con un resplandor dorado difuso, como una pieza
+     de ebanistería iluminada en sala de exhibición — más acorde a un
+     posicionamiento de lujo que el metal brillante a pantalla completa. */
+  --surface-showroom:
+    radial-gradient(ellipse 60% 50% at 20% 10%, rgba(201, 168, 106, 0.30), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 100%, rgba(166, 124, 78, 0.22), transparent 60%),
+    linear-gradient(165deg, #1a130c 0%, #0d0b09 55%, #0a0807 100%);
+
   /* Tipografía */
   --font-display: "Fraunces", "Georgia", serif;   /* trazo orgánico, ecos del grano de la madera */
   --font-body: "Work Sans", "Helvetica Neue", sans-serif;
@@ -64,4 +73,7 @@
   /* Marcas de servicio (WhatsApp usa su verde reconocible a propósito) */
   --color-whatsapp: #2fae5b;
   --color-whatsapp-dark: #248a48;
+
+  /* Header integrado */
+  --header-height: 88px;
 }
