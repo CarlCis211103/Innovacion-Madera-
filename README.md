@@ -16,18 +16,10 @@ innovacion-maderas/
 │   │   ├── variables.css       → Tokens de diseño (color, tipografía, espaciado)
 │   │   ├── reset.css           → Reset base del navegador
 │   │   ├── main.css            → Header integrado, menú móvil, botones flotantes (compartido)
-│   │   ├── effects.css         → Cursor personalizado, botones magnéticos, transición
-│   │   │                          de página, microinteracciones y comparador antes/después
-│   │   │                          (compartido por todas las páginas)
 │   │   └── pages/home.css      → Estilos exclusivos de la landing page
 │   ├── js/
 │   │   ├── main.js             → Header al hacer scroll, formulario, WhatsApp, menú móvil
-│   │   └── modules/
-│   │       ├── cursor.js           → Cursor personalizado (punto + anillo con inercia)
-│   │       ├── magnetic.js         → Atracción magnética en botones (.btn, .floating-btn)
-│   │       ├── parallax.js         → Parallax sutil del árbol de fondo del hero
-│   │       ├── pageTransition.js   → Cortina de transición al navegar entre páginas
-│   │       └── beforeAfter.js      → Comparador antes/después (arrastre + teclado)
+│   │   └── modules/            → Para futuros scripts (animaciones adicionales)
 │   ├── images/
 │   │   ├── logo/                → Logotipo
 │   │   └── content/              → Fotos/renders reales de proyectos (pendiente)
@@ -64,11 +56,6 @@ placeholder de "próximamente" con contacto directo.
   cada tarjeta de servicio tiene una imagen protagonista + descripción.
 - **Muestrario de maderas** y **franja de renders 3D** como diferenciadores
   visuales, alineados al modelo de comercialización de la marca.
-- **Capa de interacción** (`effects.css` + `assets/js/modules/`): cursor
-  personalizado, botones magnéticos, parallax sutil en el hero, transición
-  de cortina entre páginas y un comparador antes/después interactivo en la
-  franja de renders. Todo se desactiva automáticamente en pantallas
-  táctiles y con `prefers-reduced-motion`, sin afectar la funcionalidad.
 
 ## Elementos de conversión
 

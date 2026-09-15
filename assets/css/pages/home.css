@@ -92,54 +92,34 @@
 
 /* ---------- Tarjeta de consulta (formulario) ---------- */
 .lead-card {
-  position: relative;
-  isolation: isolate;
   background: var(--color-ivory);
+  border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
   padding: var(--space-4);
   color: var(--text-primary);
-  border-radius: 3px;
 }
 
-/* Borde en degradado dorado, giratorio: se dibuja con un pseudo-elemento
-   enmascarado para no interferir con el padding/contenido de la tarjeta. */
+.lead-card { position: relative; }
+
 .lead-card::before {
   content: "";
   position: absolute;
-  inset: -1px;
-  padding: 1.5px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from var(--angle, 0deg),
-    var(--color-gold-light),
-    var(--color-bronze) 30%,
-    transparent 55%,
-    var(--color-gold) 85%,
-    var(--color-gold-light)
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: lead-border-spin 7s linear infinite;
-  pointer-events: none;
-  z-index: -1;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-bronze) 0%, var(--color-gold) 50%, var(--color-bronze) 100%);
 }
 
-@property --angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
+.lead-card__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--step-xs);
+  color: var(--color-bronze-deep);
+  letter-spacing: 0.03em;
 }
+.lead-card__kicker svg { width: 14px; height: 14px; }
 
-@keyframes lead-border-spin {
-  to { --angle: 360deg; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lead-card::before { animation: none; }
-}
-
-.lead-card__title { font-size: var(--step-lg); }
+.lead-card__title { font-size: var(--step-lg); margin-top: 0.4rem; }
 
 .lead-card__subtitle {
   margin-top: var(--space-1);
@@ -150,87 +130,107 @@
 .lead-form {
   margin-top: var(--space-3);
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
-.field { display: grid; gap: 0.5rem; }
+/* Campos con ícono, etiqueta flotante y confirmación de validez */
+.field { position: relative; }
 
-.field label {
-  font-size: var(--step-xs);
-  letter-spacing: 0.02em;
-  color: var(--color-bronze-deep);
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-.field:focus-within label { color: var(--color-black); }
-
-.field__control {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.field__control svg {
+.field__icon {
   position: absolute;
-  left: 0.1rem;
-  width: 18px;
-  height: 18px;
-  color: var(--color-bronze);
+  left: 0.9rem;
+  top: 1.05rem;
+  width: 18px; height: 18px;
+  color: var(--text-muted);
   pointer-events: none;
-  transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+  transition: color var(--duration-fast) var(--ease-standard);
+  z-index: 1;
 }
-
-.field:focus-within .field__control svg {
-  color: var(--color-gold);
-  transform: scale(1.08);
-}
-
-/* línea inferior que se dibuja de izquierda a derecha al enfocar el campo */
-.field__control::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1.5px;
-  background: var(--color-gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--duration-base) var(--ease-standard);
-}
-.field:focus-within .field__control::after { transform: scaleX(1); }
 
 .field input,
 .field select {
   width: 100%;
   border: none;
   border-bottom: 1.5px solid var(--border-subtle);
-  border-radius: 0;
-  background: transparent;
-  padding: 0.75rem 0.4rem 0.65rem 1.7rem;
+  background: var(--color-white);
+  padding: 1.15rem 1rem 0.5rem 2.6rem;
   font-size: var(--step-sm);
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  transition: border-color var(--duration-fast) var(--ease-standard);
+  border-radius: var(--radius);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard);
 }
 
-.field input:focus-visible,
-.field select:focus-visible {
+.field select { padding-left: 2.6rem; padding-top: 1.35rem; padding-bottom: 0.45rem; }
+
+.field--select label {
+  top: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--color-bronze-deep);
+}
+
+.field input::placeholder { color: transparent; }
+
+.field label {
+  position: absolute;
+  left: 2.6rem;
+  top: 1.15rem;
+  font-size: var(--step-sm);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: top var(--duration-fast) var(--ease-standard),
+              font-size var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+
+.field input:focus,
+.field input:not(:placeholder-shown) {
+  padding-top: 1.45rem;
+  padding-bottom: 0.35rem;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--color-bronze-deep);
+}
+
+.field:focus-within .field__icon { color: var(--color-bronze); }
+
+.field input:focus,
+.field select:focus {
   outline: none;
+  background: #fbf9f5;
+  border-color: var(--color-bronze);
 }
 
-.field select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a67c4e' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.2rem center;
-  background-size: 16px;
-  padding-right: 1.6rem;
+.field__check {
+  position: absolute;
+  right: 0.9rem;
+  top: 1.05rem;
+  width: 18px; height: 18px;
+  color: #3f8f5a;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity var(--duration-fast) var(--ease-standard),
+              transform var(--duration-fast) var(--ease-standard);
 }
+
+.field input:not(:placeholder-shown):valid ~ .field__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.field select:not([value=""]):valid { color: var(--text-primary); }
 
 .field-row {
   display: grid;
   gap: var(--space-2);
   grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 380px) {
+  .field-row { grid-template-columns: 1fr; }
 }
 
 .btn {
@@ -362,7 +362,11 @@
   aspect-ratio: 16 / 10;
   position: relative;
   background: linear-gradient(135deg, var(--color-bronze-deep) 0%, var(--color-bronze) 45%, var(--color-gold-light) 100%);
+  transition: transform 600ms var(--ease-standard);
+  transform-origin: center;
 }
+
+.service-feature:hover .service-feature__media { transform: scale(1.045); }
 
 .service-feature__media::after {
   content: attr(data-caption);
@@ -429,14 +433,7 @@
 
 .render-banner__art {
   aspect-ratio: 4/3;
-  padding: 10px;
-  background: var(--color-black);
   border: 1px solid var(--border-on-dark);
-}
-
-.render-banner__art .compare {
-  height: 100%;
-  aspect-ratio: auto;
 }
 
 .render-banner h2 {

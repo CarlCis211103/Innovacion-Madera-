@@ -32,6 +32,46 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Transición entre páginas — velo que cubre/descubre la pantalla para que
+   navegar a otra página se sienta como parte de la misma experiencia.
+   ========================================================================== */
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--color-black);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 480ms var(--ease-standard);
+}
+
+.page-transition.is-hidden { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { transition: none; }
+}
+
+/* ==========================================================================
+   Botones — micro-interacciones compartidas.
+   El desplazamiento "magnético" lo aplica JS vía transform inline;
+   aquí solo se define la respuesta de sombra/color y la suavidad del
+   regreso a su posición original.
+   ========================================================================== */
+
+.btn, .floating-btn, .service-cta {
+  transition: transform 200ms var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard),
+              box-shadow 200ms var(--ease-standard);
+}
+
+.btn:hover { box-shadow: 0 14px 30px -16px rgba(13, 11, 9, 0.5); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .floating-btn, .service-cta { transition: background var(--duration-fast) var(--ease-standard); }
+}
+
+/* ==========================================================================
    Header integrado
    Transparente sobre el hero oscuro; al hacer scroll (o en páginas sin
    hero, vía data-force-solid) se vuelve sólido con leve desenfoque.

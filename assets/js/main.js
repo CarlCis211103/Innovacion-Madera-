@@ -1,20 +1,10 @@
 // main.js — punto de entrada, compartido por todas las páginas del sitio.
 
-import { initCustomCursor } from "./modules/cursor.js";
-import { initMagneticButtons } from "./modules/magnetic.js";
-import { initHeroParallax } from "./modules/parallax.js";
-import { initPageTransitions } from "./modules/pageTransition.js";
-import { initCompareSliders } from "./modules/beforeAfter.js";
-
 const CONTACT = {
   phoneDisplay: "(555) 123-4567",
   phoneE164: "+15551234567",
   whatsappNumber: "15551234567", // sin '+', formato requerido por wa.me
 };
-
-// La cortina de transición debe cubrir la pantalla lo antes posible,
-// así que se inicia antes de esperar a DOMContentLoaded.
-initPageTransitions();
 
 document.addEventListener("DOMContentLoaded", () => {
   wireContactNumbers();
@@ -24,11 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   wireWhatsappMessage();
   wireLeadForm();
   wireCoverageCheck();
-
-  initCustomCursor();
-  initMagneticButtons();
-  initHeroParallax();
-  initCompareSliders();
 });
 
 /**
