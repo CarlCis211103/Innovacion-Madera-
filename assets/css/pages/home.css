@@ -92,11 +92,51 @@
 
 /* ---------- Tarjeta de consulta (formulario) ---------- */
 .lead-card {
+  position: relative;
+  isolation: isolate;
   background: var(--color-ivory);
-  border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
   padding: var(--space-4);
   color: var(--text-primary);
+  border-radius: 3px;
+}
+
+/* Borde en degradado dorado, giratorio: se dibuja con un pseudo-elemento
+   enmascarado para no interferir con el padding/contenido de la tarjeta. */
+.lead-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    var(--color-gold-light),
+    var(--color-bronze) 30%,
+    transparent 55%,
+    var(--color-gold) 85%,
+    var(--color-gold-light)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: lead-border-spin 7s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes lead-border-spin {
+  to { --angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lead-card::before { animation: none; }
 }
 
 .lead-card__title { font-size: var(--step-lg); }
@@ -113,28 +153,78 @@
   gap: var(--space-2);
 }
 
-.field { display: grid; gap: 0.4rem; }
+.field { display: grid; gap: 0.5rem; }
 
 .field label {
   font-size: var(--step-xs);
+  letter-spacing: 0.02em;
   color: var(--color-bronze-deep);
+  transition: color var(--duration-fast) var(--ease-standard);
 }
+
+.field:focus-within label { color: var(--color-black); }
+
+.field__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field__control svg {
+  position: absolute;
+  left: 0.1rem;
+  width: 18px;
+  height: 18px;
+  color: var(--color-bronze);
+  pointer-events: none;
+  transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+
+.field:focus-within .field__control svg {
+  color: var(--color-gold);
+  transform: scale(1.08);
+}
+
+/* línea inferior que se dibuja de izquierda a derecha al enfocar el campo */
+.field__control::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1.5px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.field:focus-within .field__control::after { transform: scaleX(1); }
 
 .field input,
 .field select {
-  border: 1px solid var(--border-subtle);
-  background: var(--color-white);
-  padding: 0.85rem 1rem;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--border-subtle);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.75rem 0.4rem 0.65rem 1.7rem;
   font-size: var(--step-sm);
-  border-radius: var(--radius);
+  font-family: var(--font-body);
+  color: var(--text-primary);
   transition: border-color var(--duration-fast) var(--ease-standard);
 }
 
 .field input:focus-visible,
 .field select:focus-visible {
-  outline: 2px solid var(--color-bronze);
-  outline-offset: 1px;
-  border-color: var(--color-bronze);
+  outline: none;
+}
+
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a67c4e' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.2rem center;
+  background-size: 16px;
+  padding-right: 1.6rem;
 }
 
 .field-row {
@@ -339,7 +429,14 @@
 
 .render-banner__art {
   aspect-ratio: 4/3;
+  padding: 10px;
+  background: var(--color-black);
   border: 1px solid var(--border-on-dark);
+}
+
+.render-banner__art .compare {
+  height: 100%;
+  aspect-ratio: auto;
 }
 
 .render-banner h2 {

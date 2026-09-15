@@ -1,0 +1,328 @@
+/*
+  effects.css — capa de interacción compartida por todo el sitio:
+  cursor personalizado, botones magnéticos, transición entre páginas,
+  microinteracciones de botones y el comparador antes/después.
+
+  Todo se desactiva automáticamente en pantallas táctiles y con
+  prefers-reduced-motion, sin afectar la funcionalidad base.
+*/
+
+/* ==========================================================================
+   Cursor personalizado
+   Un punto que sigue al mouse 1:1 y un anillo con retardo (inercia),
+   que se agranda sobre elementos interactivos. Los elementos se crean
+   por JS (assets/js/modules/cursor.js) para no tocar el HTML existente.
+   ========================================================================== */
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  transition: opacity 200ms var(--ease-standard);
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid var(--color-gold);
+  opacity: 0.6;
+  transition: width 240ms var(--ease-standard), height 240ms var(--ease-standard),
+    margin 240ms var(--ease-standard), background 240ms var(--ease-standard),
+    opacity 200ms var(--ease-standard);
+}
+
+.cursor-dot {
+  margin: -3px 0 0 -3px;
+}
+
+.cursor-ring.is-active {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  background: rgba(201, 168, 106, 0.14);
+  opacity: 1;
+}
+
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor input,
+body.has-custom-cursor select,
+body.has-custom-cursor summary,
+body.has-custom-cursor .service-feature {
+  cursor: none;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Transición de página
+   Cortina de color showroom que cubre la pantalla al salir de una página
+   y se retira al entrar a la siguiente. Se inyecta y controla desde
+   assets/js/modules/pageTransition.js.
+   ========================================================================== */
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.page-transition__panel {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-showroom);
+}
+
+.page-transition.is-revealing .page-transition__panel {
+  transform-origin: top;
+  animation: page-reveal 640ms var(--ease-standard) forwards;
+}
+
+.page-transition.is-covering .page-transition__panel {
+  transform-origin: bottom;
+  animation: page-cover 460ms var(--ease-standard) forwards;
+}
+
+@keyframes page-reveal {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0); }
+}
+
+@keyframes page-cover {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Microinteracciones de botones
+   Barrido de brillo al pasar el mouse + desplazamiento de ícono.
+   Se aplica sobre las clases ya existentes (.btn, .floating-btn, etc.)
+   sin requerir cambios de marcado.
+   ========================================================================== */
+
+.btn,
+.floating-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.24) 50%, transparent 70%);
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  transition: transform 650ms var(--ease-standard);
+  transform: translateX(130%);
+}
+
+.btn svg {
+  transition: transform 260ms var(--ease-standard);
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+.floating-btn {
+  transition: transform 220ms var(--ease-standard), box-shadow 220ms var(--ease-standard);
+}
+
+.floating-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px -18px rgba(13, 11, 9, 0.6);
+}
+
+.service-feature {
+  transition: transform 320ms var(--ease-standard), box-shadow 320ms var(--ease-standard);
+}
+
+.service-feature:hover {
+  transform: translateY(-5px);
+}
+
+.faq-item summary {
+  transition: color 200ms var(--ease-standard);
+}
+
+.faq-item summary:hover {
+  color: var(--color-bronze-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::after {
+    display: none;
+  }
+  .btn:hover svg {
+    transform: none;
+  }
+  .floating-btn:hover,
+  .service-feature:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Comparador antes / después
+   Componente reutilizable: dos paneles superpuestos + un <input type="range">
+   invisible que controla el recorte del panel "después", accesible por
+   teclado y lector de pantalla. Arrastrable desde cualquier punto.
+   ========================================================================== */
+
+.compare {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  --compare-pos: 50%;
+}
+
+.compare__pane {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-2);
+}
+
+.compare__before {
+  z-index: 1;
+  background:
+    linear-gradient(rgba(13, 11, 9, 0) 55%, rgba(13, 11, 9, 0.65) 100%),
+    repeating-linear-gradient(0deg, rgba(244, 239, 228, 0.05) 0px, rgba(244, 239, 228, 0.05) 1px, transparent 1px, transparent 42px),
+    repeating-linear-gradient(90deg, rgba(244, 239, 228, 0.05) 0px, rgba(244, 239, 228, 0.05) 1px, transparent 1px, transparent 42px),
+    linear-gradient(165deg, #1c1512 0%, #0d0b09 100%);
+}
+
+.compare__after {
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--compare-pos)) 0 0);
+  background:
+    linear-gradient(rgba(13, 11, 9, 0) 55%, rgba(13, 11, 9, 0.5) 100%),
+    repeating-linear-gradient(100deg, rgba(0, 0, 0, 0.07) 0px, rgba(0, 0, 0, 0.07) 2px, transparent 2px, transparent 10px),
+    linear-gradient(160deg, #e6cd9a 0%, #a67c4e 55%, #6b4f34 100%);
+}
+
+.compare__before .compare__tag {
+  margin-left: auto;
+}
+
+.compare__tag {
+  position: relative;
+  font-size: var(--step-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-ivory);
+  background: rgba(13, 11, 9, 0.55);
+  padding: 0.4em 0.8em;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+.compare__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--compare-pos);
+  width: 2px;
+  background: rgba(244, 239, 228, 0.9);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.compare__grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-ivory);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  transition: transform 200ms var(--ease-standard);
+}
+
+.compare:hover .compare__grip {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.compare__grip svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-black);
+}
+
+.compare__range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 4;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.compare__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 46px;
+  height: 46px;
+}
+
+.compare__range::-moz-range-thumb {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background: transparent;
+}
+
+.compare__range:focus-visible ~ .compare__handle .compare__grip {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compare__grip,
+  .compare:hover .compare__grip {
+    transition: none;
+  }
+}
