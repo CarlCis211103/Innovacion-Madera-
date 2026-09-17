@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovación Maderas — Ebanistería especializada en maderas finas</title>
-  <meta name="description" content="Diseñamos, fabricamos e instalamos cocinas a la medida, walk-in closets y centros de entretenimiento en maderas finas. Matamoros, Brownsville, Harlingen, McAllen y todo el Valle del Río Grande." />
+  <title>Ebanistería a la Medida en Brownsville TX | Innovación Maderas</title>
+  <meta name="description" content="Cocinas, walk-in closets y centros de entretenimiento en madera fina, diseñados y fabricados por Innovación Maderas. Servimos Matamoros, Brownsville, Harlingen y todo el Valle del Río Grande. Consulta de diseño sin costo." />
+  <link rel="canonical" href="https://www.innovacionmaderas.com/" />
+  <!-- TODO: reemplazar por la URL real cuando el dominio esté conectado (ver Prioridad 1 del informe SEO) -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +17,36 @@
   <link rel="stylesheet" href="assets/css/variables.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/pages/home.css" />
+
+  <!-- LocalBusiness schema — actualizar "url", "address" y "sameAs" con datos
+       reales (dirección física o área de servicio, redes sociales) cuando
+       estén definidos. Ver sección 5 y 8 del informe SEO. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Innovación Maderas",
+    "description": "Ebanistería especializada en maderas finas: cocinas a la medida, walk-in closets y centros de entretenimiento, para clientes residenciales y para arquitectos, diseñadores y contratistas en el Valle del Río Grande.",
+    "url": "https://www.innovacionmaderas.com/",
+    "image": "https://www.innovacionmaderas.com/assets/images/logo/logo.png",
+    "logo": "https://www.innovacionmaderas.com/assets/images/logo/logo.png",
+    "telephone": "+52-868-159-0133",
+    "email": "hola@innovacionmaderas.com",
+    "priceRange": "$$$",
+    "areaServed": [
+      { "@type": "City", "name": "Matamoros, Tamaulipas" },
+      { "@type": "City", "name": "Brownsville, TX" },
+      { "@type": "City", "name": "Harlingen, TX" },
+      { "@type": "City", "name": "McAllen, TX" },
+      { "@type": "City", "name": "San Juan, TX" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cocinas a la Medida" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Walk-in Closets" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Centros de Entretenimiento" } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -55,15 +87,9 @@
   <main>
     <!-- ================= HERO (video) ================= -->
     <section class="hero">
-      <!--
-        VIDEO DEL HERO:
-        1) Sube tu video a Cloudinary (o el hosting que prefieras).
-        2) Descomenta la etiqueta <source> de abajo.
-        3) Pega tu URL en el atributo src.
-        Mientras tanto, se muestra la fotografía como imagen fija (poster).
-      -->
-      <video class="hero__video" poster="assets/images/content/hero-kitchen.jpg" autoplay muted loop playsinline>
-        <!-- <source src="PEGA_AQUI_TU_URL_DE_CLOUDINARY.mp4" type="video/mp4"> -->
+      <!-- Video del hero: cocina a la medida, animada con Veo (cinematic push-in). -->
+      <video class="hero__video" poster="assets/images/content/cocina-a-la-medida-matamoros-brownsville-tx.jpg" autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/npaacurb/video/upload/v1789604112/kitchen_dolly_in.mp4" type="video/mp4">
       </video>
       <div class="hero__scrim"></div>
 
@@ -80,8 +106,9 @@
             <span>Ebanistería especializada en maderas finas</span>
           </div>
 
-          <h1>Piezas de ebanistería hechas para espacios que merecen ser únicos</h1>
+          <h1>Ebanistería a la Medida en Brownsville y el Valle del Río Grande</h1>
           <p class="lede">
+            Piezas de ebanistería hechas para espacios que merecen ser únicos.
             Diseñamos, fabricamos e instalamos cocinas a la medida, walk-in
             closets y centros de entretenimiento en maderas finas — de
             principio a fin, con un solo equipo.
@@ -89,7 +116,7 @@
         </div>
 
         <div class="hero__actions">
-          <a href="#cotizar-form" class="btn btn--outline">Agendar consulta de diseño</a>
+          <a href="#cotizar-top" class="btn btn--outline">Agendar consulta de diseño</a>
           <span class="hint">Sin costo · Respuesta en menos de 24 horas</span>
         </div>
       </div>
@@ -102,7 +129,7 @@
       <div class="container">
         <div class="stat--lead">
           <strong data-count-to="300" data-suffix="+">0+</strong>
-          <span>proyectos de ebanistería entregados en el Valle del Río Grande</span>
+          <span>proyectos entregados en el Valle del Río Grande Valley y Matamoros</span>
         </div>
         <div class="stats-minor">
           <div class="stat-minor"><strong data-count-to="15" data-suffix="+">0+</strong><span>años de experiencia especializada</span></div>
@@ -112,17 +139,112 @@
       </div>
     </section>
 
+    <!-- ================= CONSULTA RÁPIDA (formulario duplicado, cerca del inicio) ================= -->
+    <section class="section quick-consult" id="cotizar-top">
+      <div class="container quick-consult__container">
+        <div class="quick-consult__intro">
+          <span class="eyebrow" style="color:var(--color-gold);">Empecemos</span>
+          <h2>Agenda tu consulta de diseño</h2>
+          <p>Sin costo. Cuéntanos tu proyecto y un especialista te contacta en menos de 24 horas.</p>
+        </div>
+
+        <div class="lead-card" id="cotizar-top-card">
+          <div class="form-progress">
+            <div class="form-progress__label">
+              <span data-progress-label>Paso 1 de 2</span>
+              <span>Consulta de diseño</span>
+            </div>
+            <div class="form-progress__track"><div class="form-progress__fill"></div></div>
+          </div>
+
+          <form class="lead-form" id="lead-form-top" novalidate>
+            <div class="form-steps">
+
+              <div class="form-step" data-step="1">
+                <h3 class="form-step__title">Tu proyecto</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <input type="text" id="zipcode-top" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
+                  <label for="zipcode-top">Código postal</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field field--select" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
+                  <select id="servicio-top" name="servicio" required>
+                    <option value="" selected disabled>Selecciona un servicio</option>
+                    <option value="Cocinas a la Medida">Cocinas a la Medida</option>
+                    <option value="Walk-in Closets">Walk-in Closets</option>
+                    <option value="Centros de Entretenimiento">Centros de Entretenimiento</option>
+                    <option value="Puertas y Molduras">Puertas y Molduras</option>
+                    <option value="Escaleras">Escaleras</option>
+                    <option value="Revestimientos de Madera">Revestimientos de Madera</option>
+                    <option value="Otro proyecto de ebanistería">Otro proyecto de ebanistería</option>
+                  </select>
+                  <label for="servicio-top">Servicio requerido</label>
+                </div>
+
+                <div class="form-nav" style="justify-content:flex-end;">
+                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="2">
+                <h3 class="form-step__title">Acerca de ti</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                  <input type="text" id="nombre-top" name="nombre" placeholder=" " required autocomplete="name" />
+                  <label for="nombre-top">Nombre completo</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+                  <input type="tel" id="telefono-top" name="telefono" placeholder=" " required autocomplete="tel" />
+                  <label for="telefono-top">Teléfono</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+                  <input type="email" id="email-top" name="email" placeholder=" " required autocomplete="email" />
+                  <label for="email-top">Correo electrónico</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                  <button type="submit" class="btn btn--primary">Solicitar consulta de diseño</button>
+                </div>
+                <p class="lead-form__note">No compartimos tu información con terceros.</p>
+              </div>
+
+            </div>
+          </form>
+
+          <div class="lead-card__divider">o si prefieres</div>
+
+          <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= SERVICIOS ================= -->
     <section class="section services-section" id="servicios">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Nuestra especialidad</span>
-          <h2>Ebanistería a medida para tres espacios centrales de tu casa</h2>
+          <h2>Cocinas a la medida, walk-in closets y centros de entretenimiento</h2>
         </div>
 
         <div class="service-row" data-service-value="Cocinas a la Medida">
           <div class="service-row__media">
-            <img src="assets/images/content/hero-kitchen.jpg" alt="Cocina a la medida fabricada por Innovación Maderas" loading="lazy" />
+            <img src="assets/images/content/cocina-a-la-medida-matamoros-brownsville-tx.jpg" alt="Cocina a la medida fabricada por Innovación Maderas en Matamoros y Brownsville, TX" loading="lazy" />
           </div>
           <div class="service-row__body">
             <h3>Cocinas a la Medida</h3>
@@ -170,7 +292,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Cómo trabajamos</span>
-          <h2>De la consulta a la instalación, con un solo equipo</h2>
+          <h2>Nuestro proceso: de la consulta a la instalación</h2>
         </div>
 
         <div class="process-list">
@@ -211,7 +333,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Portafolio</span>
-          <h2>Proyectos que reflejan nuestro nivel de detalle</h2>
+          <h2>Proyectos recientes en el Valle del Río Grande</h2>
           <p class="portfolio-note">Estamos documentando cada proyecto entregado. Pasa el cursor sobre los que ya tienen fotografía.</p>
         </div>
 
@@ -220,7 +342,7 @@
             <span class="portfolio-entry__name">Cocina a la Medida</span>
             <span class="portfolio-entry__meta">Proyecto residencial</span>
             <div class="portfolio-entry__thumb">
-              <img src="assets/images/content/hero-kitchen.jpg" alt="Cocina a la medida entregada por Innovación Maderas" loading="lazy" />
+              <img src="assets/images/content/cocina-a-la-medida-matamoros-brownsville-tx.jpg" alt="Cocina a la medida entregada por Innovación Maderas en el Valle del Río Grande" loading="lazy" />
             </div>
           </div>
           <div class="portfolio-entry">
@@ -240,8 +362,8 @@
       <div class="container">
         <div class="section-head on-dark">
           <span class="eyebrow">Área de servicio</span>
-          <h2>¿Trabajamos en tu zona?</h2>
-          <p>Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y todo el Valle del Río Grande.</p>
+          <h2>Zonas que atendemos en el Valle del Río Grande</h2>
+          <p>¿Trabajamos en tu zona? Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y todo el Valle del Río Grande.</p>
         </div>
 
         <div class="coverage-list">
@@ -266,7 +388,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Clientes</span>
-          <h2>Lo que dicen quienes ya transformaron su espacio</h2>
+          <h2>Lo que dicen nuestros clientes</h2>
         </div>
 
         <div class="testimonial-list">
@@ -308,7 +430,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Preguntas frecuentes</span>
-          <h2>Lo que suelen preguntarnos antes de empezar</h2>
+          <h2>Preguntas frecuentes sobre ebanistería a la medida</h2>
         </div>
 
         <div class="faq-list">
@@ -345,65 +467,36 @@
       <div class="container final-grid">
         <div class="final-copy">
           <span class="eyebrow" style="color:var(--color-gold);">Empecemos</span>
-          <h2>Diseñemos juntos tu próxima pieza de ebanistería</h2>
-          <p>Agenda tu consulta de diseño sin costo y recibe respuesta en menos de 24 horas.</p>
+          <h2>Solicita tu consulta de diseño gratuita</h2>
+          <p>Diseñemos juntos tu próxima pieza de ebanistería. Agenda tu consulta de diseño sin costo y recibe respuesta en menos de 24 horas.</p>
           <p class="final-copy__pro">¿Eres arquitecto, diseñador de interiores o contratista? <a href="pages/profesionales.html">Conoce cómo trabajamos contigo</a>.</p>
         </div>
 
-        <div class="lead-card" id="cotizar">
+        <div class="lead-card" id="cotizar-final">
           <div class="form-progress">
             <div class="form-progress__label">
-              <span data-progress-label>Paso 1 de 3</span>
+              <span data-progress-label>Paso 1 de 2</span>
               <span>Consulta de diseño</span>
             </div>
             <div class="form-progress__track"><div class="form-progress__fill"></div></div>
           </div>
 
-          <form class="lead-form" id="lead-form" novalidate>
+          <form class="lead-form" id="lead-form-final" novalidate>
             <div class="form-steps">
 
               <div class="form-step" data-step="1">
-                <h3 class="form-step__title">Cuéntanos de ti</h3>
-
-                <div class="field">
-                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-                  <input type="text" id="nombre" name="nombre" placeholder=" " required autocomplete="name" />
-                  <label for="nombre">Nombre completo</label>
-                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
-                </div>
-
-                <div class="field" style="margin-top: var(--space-2);">
-                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
-                  <input type="tel" id="telefono" name="telefono" placeholder=" " required autocomplete="tel" />
-                  <label for="telefono">Teléfono</label>
-                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
-                </div>
-
-                <div class="field" style="margin-top: var(--space-2);">
-                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
-                  <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
-                  <label for="email">Correo electrónico</label>
-                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
-                </div>
-
-                <div class="form-nav" style="justify-content:flex-end;">
-                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
-                </div>
-              </div>
-
-              <div class="form-step" data-step="2">
                 <h3 class="form-step__title">Tu proyecto</h3>
 
                 <div class="field">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                  <input type="text" id="zipcode" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
-                  <label for="zipcode">Código postal</label>
+                  <input type="text" id="zipcode-final" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
+                  <label for="zipcode-final">Código postal</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field field--select" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
-                  <select id="servicio" name="servicio" required>
+                  <select id="servicio-final" name="servicio" required>
                     <option value="" selected disabled>Selecciona un servicio</option>
                     <option value="Cocinas a la Medida">Cocinas a la Medida</option>
                     <option value="Walk-in Closets">Walk-in Closets</option>
@@ -413,29 +506,41 @@
                     <option value="Revestimientos de Madera">Revestimientos de Madera</option>
                     <option value="Otro proyecto de ebanistería">Otro proyecto de ebanistería</option>
                   </select>
-                  <label for="servicio">Servicio requerido</label>
+                  <label for="servicio-final">Servicio requerido</label>
                 </div>
 
-                <div class="form-nav">
-                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                <div class="form-nav" style="justify-content:flex-end;">
                   <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
                 </div>
               </div>
 
-              <div class="form-step" data-step="3">
-                <h3 class="form-step__title">Confirma tu solicitud</h3>
+              <div class="form-step" data-step="2">
+                <h3 class="form-step__title">Acerca de ti</h3>
 
-                <dl class="form-summary">
-                  <div><dt>Nombre</dt><dd id="summary-nombre">—</dd></div>
-                  <div><dt>Teléfono</dt><dd id="summary-telefono">—</dd></div>
-                  <div><dt>Correo</dt><dd id="summary-email">—</dd></div>
-                  <div><dt>Código postal</dt><dd id="summary-zip">—</dd></div>
-                  <div><dt>Servicio</dt><dd id="summary-servicio">—</dd></div>
-                </dl>
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                  <input type="text" id="nombre-final" name="nombre" placeholder=" " required autocomplete="name" />
+                  <label for="nombre-final">Nombre completo</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+                  <input type="tel" id="telefono-final" name="telefono" placeholder=" " required autocomplete="tel" />
+                  <label for="telefono-final">Teléfono</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+                  <input type="email" id="email-final" name="email" placeholder=" " required autocomplete="email" />
+                  <label for="email-final">Correo electrónico</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
 
                 <div class="form-nav">
                   <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
-                  <button type="submit" class="btn btn--primary">Confirmar y enviar</button>
+                  <button type="submit" class="btn btn--primary">Solicitar consulta de diseño</button>
                 </div>
                 <p class="lead-form__note">No compartimos tu información con terceros.</p>
               </div>

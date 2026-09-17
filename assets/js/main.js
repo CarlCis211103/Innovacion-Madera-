@@ -1,9 +1,9 @@
 // main.js — punto de entrada, compartido por todas las páginas del sitio.
 
 const CONTACT = {
-  phoneDisplay: "(555) 123-4567",
-  phoneE164: "+15551234567",
-  whatsappNumber: "15551234567", // sin '+', formato requerido por wa.me
+  phoneDisplay: "+52 868 159 0133",
+  phoneE164: "+528681590133",
+  whatsappNumber: "528681590133", // sin '+', formato requerido por wa.me — asumiendo mismo número para WhatsApp
 };
 
 const prefersReducedMotion = () =>
@@ -133,72 +133,91 @@ function wireMagneticButtons() {
 }
 
 /**
- * Al hacer clic en una fila de servicio, se preselecciona esa opción
- * en el formulario, se reinicia al paso 1 y se hace scroll hacia él.
+ * Al hacer clic en una fila de servicio, se preselecciona esa opción en
+ * todos los formularios de la página (por si el usuario usa cualquiera
+ * de los dos), se reinicia el más cercano al paso 1 y se hace scroll
+ * hacia él.
  */
 function wireServiceCardsToForm() {
-  const serviceSelect = document.getElementById("servicio");
+  const serviceSelects = document.querySelectorAll('select[name="servicio"]');
+  if (!serviceSelects.length) return;
 
   document.querySelectorAll("[data-service-value]").forEach((card) => {
     card.addEventListener("click", () => {
-      if (serviceSelect) serviceSelect.value = card.dataset.serviceValue;
-      document.getElementById("cotizar")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      goToFormStep(1);
-      document.getElementById("nombre")?.focus({ preventScroll: true });
+      serviceSelects.forEach((select) => { select.value = card.dataset.serviceValue; });
+
+      const target = document.getElementById("cotizar-top") || document.getElementById("cotizar-form");
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const topForm = document.getElementById("lead-form-top");
+      if (topForm) {
+        goToFormStep(topForm, 1);
+        topForm.querySelector('select[name="servicio"]')?.focus({ preventScroll: true });
+      }
     });
   });
 }
 
 /**
- * Construye el enlace de WhatsApp con un mensaje pre-armado.
+ * Construye el enlace de WhatsApp con un mensaje pre-armado. Si hay más
+ * de un formulario en la página, mantiene el servicio seleccionado
+ * sincronizado entre todos.
  */
 function wireWhatsappMessage() {
   const waLinks = document.querySelectorAll("[data-whatsapp-link]");
-  const serviceSelect = document.getElementById("servicio");
+  const serviceSelects = document.querySelectorAll('select[name="servicio"]');
 
-  const buildLink = () => {
-    const servicio = serviceSelect && serviceSelect.value ? serviceSelect.value : "";
+  const buildLink = (servicio) => {
     const base = "Hola, me gustaría agendar una consulta de diseño con Innovación Maderas.";
     const texto = servicio ? `${base} Estoy interesado en: ${servicio}.` : base;
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(texto)}`;
   };
 
-  waLinks.forEach((link) => link.setAttribute("href", buildLink()));
-  serviceSelect?.addEventListener("change", () => {
-    waLinks.forEach((link) => link.setAttribute("href", buildLink()));
+  const refreshLinks = (servicio) => {
+    waLinks.forEach((link) => link.setAttribute("href", buildLink(servicio)));
+  };
+
+  refreshLinks("");
+
+  serviceSelects.forEach((select) => {
+    select.addEventListener("change", () => {
+      serviceSelects.forEach((other) => { other.value = select.value; });
+      refreshLinks(select.value);
+    });
   });
 }
 
 /**
- * Formulario de consulta en 3 pasos, con barra de progreso.
- * Paso 1: datos de contacto. Paso 2: proyecto. Paso 3: confirmación y envío.
+ * Formulario de consulta en 2 pasos, con barra de progreso.
+ * Paso 1: el proyecto (código postal + servicio).
+ * Paso 2: datos de contacto (nombre, teléfono, correo) y envío.
+ * Soporta varias instancias del mismo formulario en la página (ej. una
+ * cerca del inicio y otra al final).
  * NOTA: el envío es simulado (ver bloque marcado). Conectar a un backend
  * real (Formspree, Netlify Forms, etc.) antes de publicar.
  */
-let currentStep = 1;
-const TOTAL_STEPS = 3;
+const formState = new WeakMap();
 
-function goToFormStep(step) {
-  const form = document.getElementById("lead-form");
-  if (!form) return;
-  currentStep = step;
+function goToFormStep(form, step) {
+  const card = form.closest(".lead-card");
+  if (!card) return;
+
+  const totalSteps = form.querySelectorAll(".form-step").length;
+  formState.set(form, step);
 
   form.querySelectorAll(".form-step").forEach((panel) => {
     panel.classList.toggle("is-active", Number(panel.dataset.step) === step);
   });
 
-  const fill = document.querySelector(".form-progress__fill");
-  if (fill) fill.style.width = `${(step / TOTAL_STEPS) * 100}%`;
+  const fill = card.querySelector(".form-progress__fill");
+  if (fill) fill.style.width = `${(step / totalSteps) * 100}%`;
 
-  const label = document.querySelector("[data-progress-label]");
-  if (label) label.textContent = `Paso ${step} de ${TOTAL_STEPS}`;
-
-  if (step === TOTAL_STEPS) fillFormSummary();
+  const label = card.querySelector("[data-progress-label]");
+  if (label) label.textContent = `Paso ${step} de ${totalSteps}`;
 }
 
-function currentStepIsValid() {
-  const form = document.getElementById("lead-form");
-  const activePanel = form.querySelector(`.form-step[data-step="${currentStep}"]`);
+function stepIsValid(form, step) {
+  const activePanel = form.querySelector(`.form-step[data-step="${step}"]`);
   if (!activePanel) return true;
 
   const fields = activePanel.querySelectorAll("input, select");
@@ -209,61 +228,50 @@ function currentStepIsValid() {
     }
   }
 
-  if (currentStep === 2) {
-    const zipInput = document.getElementById("zipcode");
-    if (zipInput && !/^\d{5}$/.test(zipInput.value.trim())) {
-      zipInput.setCustomValidity("Ingresa un código postal válido de 5 dígitos.");
-      zipInput.reportValidity();
-      zipInput.setCustomValidity("");
-      return false;
-    }
+  const zipInput = activePanel.querySelector('input[name="zipcode"]');
+  if (zipInput && !/^\d{5}$/.test(zipInput.value.trim())) {
+    zipInput.setCustomValidity("Ingresa un código postal válido de 5 dígitos.");
+    zipInput.reportValidity();
+    zipInput.setCustomValidity("");
+    return false;
   }
 
   return true;
 }
 
-function fillFormSummary() {
-  const get = (id) => document.getElementById(id)?.value || "—";
-  const map = {
-    "summary-nombre": get("nombre"),
-    "summary-telefono": get("telefono"),
-    "summary-email": get("email"),
-    "summary-zip": get("zipcode"),
-    "summary-servicio": get("servicio"),
-  };
-  Object.entries(map).forEach(([id, value]) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  });
-}
-
 function wireMultiStepForm() {
-  const form = document.getElementById("lead-form");
-  if (!form) return;
+  document.querySelectorAll(".lead-form").forEach((form) => {
+    formState.set(form, 1);
 
-  form.querySelectorAll("[data-step-next]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (currentStepIsValid()) goToFormStep(currentStep + 1);
+    form.querySelectorAll("[data-step-next]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const step = formState.get(form) || 1;
+        if (stepIsValid(form, step)) goToFormStep(form, step + 1);
+      });
     });
+
+    form.querySelectorAll("[data-step-back]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const step = formState.get(form) || 1;
+        goToFormStep(form, step - 1);
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const step = formState.get(form) || 1;
+      if (!stepIsValid(form, step)) return;
+
+      // ----- Reemplazar este bloque por el envío real -----
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log("Consulta capturada:", data);
+      // ------------------------------------------------------
+
+      showFormSuccess(form);
+    });
+
+    goToFormStep(form, 1);
   });
-
-  form.querySelectorAll("[data-step-back]").forEach((btn) => {
-    btn.addEventListener("click", () => goToFormStep(currentStep - 1));
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!currentStepIsValid()) return;
-
-    // ----- Reemplazar este bloque por el envío real -----
-    const data = Object.fromEntries(new FormData(form).entries());
-    console.log("Consulta capturada:", data);
-    // ------------------------------------------------------
-
-    showFormSuccess(form);
-  });
-
-  goToFormStep(1);
 }
 
 function showFormSuccess(form) {

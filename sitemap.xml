@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TODO: reemplazar "https://www.innovacionmaderas.com" por el dominio real
+  una vez conectado (ver Prioridad 1 del informe SEO — "Conectar dominio
+  profesional"). Enviar este sitemap en Google Search Console después.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.innovacionmaderas.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.innovacionmaderas.com/pages/profesionales.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

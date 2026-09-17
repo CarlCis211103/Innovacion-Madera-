@@ -171,14 +171,38 @@
 
 .stat-minor strong {
   font-family: var(--font-display);
-  font-size: var(--step-lg);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   color: var(--color-gold);
   min-width: 4ch;
 }
 
 .stat-minor span {
-  font-size: var(--step-xs);
-  color: rgba(244,239,228,0.65);
+  font-size: var(--step-sm);
+  color: rgba(244,239,228,0.72);
+}
+
+/* ---------- Consulta rápida (formulario duplicado cerca del inicio) ---------- */
+.quick-consult { background: var(--surface-showroom); color: var(--color-ivory); }
+
+.quick-consult__container {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 920px;
+}
+
+@media (min-width: 860px) {
+  .quick-consult__container { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+}
+
+.quick-consult__intro h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+  color: var(--color-ivory);
+  max-width: 16ch;
+}
+.quick-consult__intro p {
+  margin-top: var(--space-2);
+  color: rgba(244,239,228,0.75);
+  max-width: 40ch;
 }
 
 /* ---------- Secciones genéricas ---------- */
@@ -583,7 +607,7 @@
 .form-progress__fill {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 33.33%;
+  width: 50%;
   background: linear-gradient(90deg, var(--color-bronze), var(--color-gold));
   transition: width 400ms var(--ease-standard);
 }
@@ -719,20 +743,6 @@
   color: var(--text-muted);
   text-align: center;
 }
-
-/* Resumen del paso de confirmación */
-.form-summary {
-  display: grid;
-  gap: 0.6rem;
-  padding: var(--space-3);
-  background: var(--color-white);
-  border: 1px solid var(--border-subtle);
-  margin-bottom: var(--space-3);
-  font-size: var(--step-sm);
-}
-.form-summary div { display: flex; justify-content: space-between; gap: var(--space-2); }
-.form-summary dt { color: var(--text-muted); }
-.form-summary dd { font-weight: 600; text-align: right; }
 
 .lead-card .btn--whatsapp { width: 100%; }
 

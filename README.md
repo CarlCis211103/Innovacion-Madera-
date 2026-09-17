@@ -9,6 +9,8 @@ frameworks ni build step.
 ```
 innovacion-maderas/
 ├── index.html                  → Landing page principal (B2C)
+├── sitemap.xml                 → Mapa del sitio para Google Search Console
+├── robots.txt                  → Reglas de rastreo
 ├── pages/
 │   └── profesionales.html      → Placeholder para B2B (arquitectos, contratistas, diseñadores)
 ├── assets/
@@ -86,9 +88,45 @@ placeholder de "próximamente" con contacto directo.
   de comercialización) o "Innovación Maderas" (como en el sitio actual) —
   hoy el sitio usa la versión en plural.
 
-## Próximos pasos sugeridos
+## SEO técnico
 
+Implementado a partir de la auditoría SEO adaptada (originalmente hecha para
+un sitio de roofing en el mismo mercado — Brownsville/RGV — y traducida al
+rubro de ebanistería/millwork):
+
+- **Title y meta description** con fórmula servicio + ciudad en `index.html`
+  y `pages/profesionales.html`.
+- **H1 con señal geográfica** en el hero (`Ebanistería a la Medida en
+  Brownsville y el Valle del Río Grande`); el copy emocional original se
+  conservó como texto de apoyo (`lede`).
+- **Jerarquía H2** revisada en cada sección para incluir el servicio o la
+  zona, sin perder el tono editorial del sitio.
+- **`LocalBusiness` schema** (`HomeAndConstructionBusiness`) en `index.html`,
+  con `areaServed` para las 5 ciudades que cubre la marca.
+- **Imagen renombrada** de `hero-kitchen.jpg` a
+  `cocina-a-la-medida-matamoros-brownsville-tx.jpg`, con `alt` descriptivo
+  y geolocalizado en sus 3 usos (poster del hero, servicios, portafolio).
+- **`sitemap.xml`** y **`robots.txt`** en la raíz del proyecto.
+
+### Pendiente para que el SEO técnico esté completo (requiere datos reales)
+
+- **Dominio profesional**: todas las URLs (`canonical`, `sitemap.xml`,
+  `robots.txt`, `url`/`logo`/`image` del schema) usan
+  `https://www.innovacionmaderas.com/` como placeholder — están marcadas con
+  `TODO` en el código. Reemplazar en cuanto el dominio esté conectado y
+  enviar el sitemap actualizado en Google Search Console.
+- **Dirección física o área de servicio formal** para el schema
+  (`address` no se incluyó por no tener un dato real todavía).
+- **Google Business Profile**, consistencia NAP en directorios y redes
+  (`sameAs` del schema quedó vacío).
+- **Páginas de servicio dedicadas** (`/cocinas-a-la-medida-brownsville-tx/`,
+  etc.) — quedaron fuera de este pase porque el catálogo de servicios va a
+  actualizarse antes; se retoman cuando eso esté definido.
+
+## Próximos pasos sugeridos
 1. Sustituir placeholders visuales por fotografía/renders reales.
 2. Conectar el formulario a un sistema real de captación de leads.
 3. Construir `pages/profesionales.html` como experiencia B2B completa.
 4. Considerar version en inglés dado el mercado bilingüe (RGV).
+5. Conectar dominio profesional y actualizar los `TODO` de SEO (canonical,
+   sitemap, schema), luego enviar el sitemap en Google Search Console.
