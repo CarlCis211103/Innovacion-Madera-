@@ -143,9 +143,10 @@ h1, h2, h3, h4 {
 }
 
 .site-header .logo {
-  height: 38px;
+  height: 40px;
   width: auto;
-  filter: brightness(0) invert(1); /* logo claro: el header siempre está sobre fondo oscuro */
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--border-on-dark);
 }
 
 .main-nav {
@@ -159,18 +160,19 @@ h1, h2, h3, h4 {
 }
 
 .main-nav a {
-  color: var(--color-ivory);
+  color: var(--color-gold);
   font-size: var(--step-sm);
   opacity: 0.88;
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  transition: opacity var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
 }
-.main-nav a:hover { opacity: 1; }
+.main-nav a:hover { opacity: 1; color: var(--color-gold-light); }
 
 .main-nav .nav-pro {
   padding-left: var(--space-3);
   border-left: 1px solid var(--border-on-dark);
-  opacity: 0.7;
-  font-size: var(--step-xs);
+  opacity: 0.95;
+  font-size: var(--step-base);
+  font-weight: 500;
 }
 
 .header-actions {
@@ -238,7 +240,7 @@ h1, h2, h3, h4 {
 .mobile-nav.is-open { transform: translateY(0); }
 
 .mobile-nav a {
-  color: var(--color-ivory);
+  color: var(--color-gold);
   font-family: var(--font-display);
   font-size: var(--step-lg);
 }
@@ -248,8 +250,9 @@ h1, h2, h3, h4 {
   padding-top: var(--space-3);
   border-top: 1px solid var(--border-on-dark);
   font-family: var(--font-body);
-  font-size: var(--step-base);
-  color: var(--border-on-dark);
+  font-size: var(--step-md);
+  font-weight: 500;
+  color: var(--color-gold-light);
 }
 
 /* ==========================================================================

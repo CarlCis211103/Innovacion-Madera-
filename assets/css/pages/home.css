@@ -78,6 +78,20 @@
   color: rgba(244, 239, 228, 0.65);
 }
 
+.hero__pro-link {
+  margin-top: var(--space-3);
+  font-size: var(--step-sm);
+  color: rgba(244, 239, 228, 0.7);
+}
+
+.hero__pro-link a {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.hero__pro-link a:hover { color: var(--color-gold); }
+
 .scroll-cue {
   position: absolute;
   left: 50%;
@@ -112,17 +126,18 @@
   .scroll-cue::after { animation: none; }
 }
 
-.hero__content, .hero__actions {
+.hero__content, .hero__actions, .hero__pro-link {
   opacity: 0;
   transform: translateY(16px);
   animation: rise var(--duration-base) var(--ease-standard) forwards;
 }
 .hero__actions { animation-delay: 150ms; }
+.hero__pro-link { animation-delay: 260ms; }
 
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__content, .hero__actions { opacity: 1; transform: none; animation: none; }
+  .hero__content, .hero__actions, .hero__pro-link { opacity: 1; transform: none; animation: none; }
 }
 
 /* ---------- Franja de credenciales (asimétrica) ---------- */
@@ -628,6 +643,13 @@
 
 .form-step__title { font-size: var(--step-lg); margin-bottom: var(--space-3); }
 
+.form-error {
+  margin-top: var(--space-2);
+  font-size: var(--step-xs);
+  color: #b23b3b;
+}
+.form-error a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
 .lead-form { display: grid; gap: var(--space-3); }
 
 .field { position: relative; }
@@ -772,7 +794,7 @@
 /* ---------- Footer ---------- */
 .site-footer { background: #0a0807; color: var(--border-on-dark); padding-block: var(--space-5) var(--space-4); }
 
-.site-footer .logo { height: 38px; filter: brightness(0) invert(1); opacity: 0.9; }
+.site-footer .logo { height: 40px; border-radius: 6px; box-shadow: 0 0 0 1px var(--border-on-dark); }
 
 .footer-grid { display: grid; gap: var(--space-4); }
 

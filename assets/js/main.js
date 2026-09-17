@@ -4,6 +4,8 @@ const CONTACT = {
   phoneDisplay: "+52 868 159 0133",
   phoneE164: "+528681590133",
   whatsappNumber: "528681590133", // sin '+', formato requerido por wa.me — asumiendo mismo número para WhatsApp
+  leadEmail: "carlosgcs211103@gmail.com", // referencia informativa: el correo real de destino se configura en Formspree
+  formEndpoint: "https://formspree.io/f/xwlpkvrd",
 };
 
 const prefersReducedMotion = () =>
@@ -193,8 +195,11 @@ function wireWhatsappMessage() {
  * Paso 2: datos de contacto (nombre, teléfono, correo) y envío.
  * Soporta varias instancias del mismo formulario en la página (ej. una
  * cerca del inicio y otra al final).
- * NOTA: el envío es simulado (ver bloque marcado). Conectar a un backend
- * real (Formspree, Netlify Forms, etc.) antes de publicar.
+ * ENVÍO: POST silencioso a CONTACT.formEndpoint (Formspree) — el visitante
+ * no sale de la página ni necesita cliente de correo configurado. El
+ * correo de notificación real se administra desde el dashboard de
+ * Formspree, no desde este código. Si el POST falla (sin conexión, etc.),
+ * se ofrece un enlace "mailto:" de respaldo con los mismos datos.
  */
 const formState = new WeakMap();
 
@@ -257,21 +262,81 @@ function wireMultiStepForm() {
       });
     });
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const step = formState.get(form) || 1;
       if (!stepIsValid(form, step)) return;
 
-      // ----- Reemplazar este bloque por el envío real -----
-      const data = Object.fromEntries(new FormData(form).entries());
-      console.log("Consulta capturada:", data);
-      // ------------------------------------------------------
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+      }
 
-      showFormSuccess(form);
+      try {
+        const response = await fetch(CONTACT.formEndpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+
+        if (response.ok) {
+          showFormSuccess(form);
+        } else {
+          showFormError(form, submitBtn, originalLabel);
+        }
+      } catch (error) {
+        showFormError(form, submitBtn, originalLabel);
+      }
     });
 
     goToFormStep(form, 1);
   });
+}
+
+/**
+ * Respaldo si el POST a Formspree falla (sin conexión, endpoint caído,
+ * etc.): re-habilita el botón y ofrece un enlace mailto: con los mismos
+ * datos, dirigido a CONTACT.leadEmail, para que la consulta no se pierda.
+ */
+function showFormError(form, submitBtn, originalLabel) {
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
+  }
+
+  const activePanel = form.querySelector(".form-step.is-active");
+  if (!activePanel) return;
+
+  let errorEl = activePanel.querySelector(".form-error");
+  if (!errorEl) {
+    errorEl = document.createElement("p");
+    errorEl.className = "form-error";
+    activePanel.appendChild(errorEl);
+  }
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  errorEl.innerHTML = `No pudimos enviar tu solicitud. Intenta de nuevo o <a href="${buildLeadMailto(data)}">escríbenos por correo</a>.`;
+}
+
+/**
+ * Arma un enlace mailto: con los datos del formulario, dirigido a
+ * CONTACT.leadEmail. Se usa únicamente como respaldo si el envío
+ * silencioso a Formspree falla (ver showFormError).
+ */
+function buildLeadMailto(data) {
+  const subject = `Nueva consulta de diseño — ${data.servicio || "proyecto sin especificar"}`;
+  const lines = [
+    `Nombre: ${data.nombre || "-"}`,
+    `Teléfono: ${data.telefono || "-"}`,
+    `Código postal: ${data.zipcode || "-"}`,
+    `Correo: ${data.email || "-"}`,
+    `Servicio: ${data.servicio || "-"}`,
+  ];
+  if (data.mensaje) lines.push(`Mensaje: ${data.mensaje}`);
+  const body = lines.join("\n");
+  return `mailto:${CONTACT.leadEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function showFormSuccess(form) {
