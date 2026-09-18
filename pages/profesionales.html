@@ -53,33 +53,116 @@
   </nav>
 
   <main>
-    <!-- ================= HERO ================= -->
+    <!-- ================= HERO (video + formulario) ================= -->
     <section class="pro-hero">
+      <video class="pro-hero__video" autoplay muted loop playsinline poster="../assets/images/content/cocina-a-la-medida-mcallen-tx.jpg">
+        <source src="https://res.cloudinary.com/npaacurb/video/upload/v1789606462/CustomKitchenCabinetsMcAllenTx.mp4" type="video/mp4">
+      </video>
+      <div class="pro-hero__scrim"></div>
+
       <div class="container">
-        <span class="eyebrow">Para arquitectos, contratistas y constructoras</span>
-        <h1>Ebanistería y Millwork para Arquitectos, Contratistas y Constructoras</h1>
-        <p class="pro-hero__lede">
-          Fabricación propia de gabinetes, molduras y carpintería
-          arquitectónica para proyectos residenciales y comerciales en el
-          Valle del Río Grande. Un solo equipo, de la especificación a la
-          instalación en obra.
-        </p>
-        <div class="pro-hero__actions">
-          <a data-whatsapp-link href="#" target="_blank" rel="noopener" class="btn btn--gold">
+        <div>
+          <span class="eyebrow">Para arquitectos, contratistas y constructoras</span>
+          <h1>Ebanistería y Millwork para Arquitectos, Contratistas y Constructoras</h1>
+          <p class="pro-hero__lede">
+            Fabricación propia de gabinetes, molduras y carpintería
+            arquitectónica para proyectos residenciales y comerciales en el
+            Valle del Río Grande. Un solo equipo, de la especificación a la
+            instalación en obra.
+          </p>
+          <ul class="pro-trustbar">
+            <li>Fabricación propia, sin subcontratistas</li>
+            <li>Cumplimiento de plazos de obra</li>
+            <li>Un solo punto de contacto técnico</li>
+          </ul>
+        </div>
+
+        <div class="lead-card" id="cotizar-pro-top-card">
+          <div class="form-progress">
+            <div class="form-progress__label">
+              <span data-progress-label>Paso 1 de 2</span>
+              <span>Cotización de proyecto</span>
+            </div>
+            <div class="form-progress__track"><div class="form-progress__fill"></div></div>
+          </div>
+
+          <form class="lead-form" id="lead-form-pro-top" novalidate>
+            <input type="hidden" name="_subject" value="Nueva consulta — Arquitectos y Contratistas (Innovación Maderas)" />
+            <div class="form-steps">
+
+              <div class="form-step" data-step="1">
+                <h3 class="form-step__title">Tu proyecto</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <input type="text" id="zipcode-pro-top" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
+                  <label for="zipcode-pro-top">Código postal del proyecto</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field field--select" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
+                  <select id="servicio-pro-top" name="servicio" required>
+                    <option value="" selected disabled>Selecciona un tipo de proyecto</option>
+                    <option value="Proyecto residencial (spec home)">Proyecto residencial (spec home)</option>
+                    <option value="Proyecto comercial">Proyecto comercial</option>
+                    <option value="Proyecto multifamiliar">Proyecto multifamiliar</option>
+                    <option value="Remodelación">Remodelación</option>
+                    <option value="Otro tipo de proyecto">Otro tipo de proyecto</option>
+                  </select>
+                  <label for="servicio-pro-top">Tipo de proyecto</label>
+                </div>
+
+                <div class="form-nav" style="justify-content:flex-end;">
+                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="2">
+                <h3 class="form-step__title">Acerca de tu empresa</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                  <input type="text" id="nombre-pro-top" name="nombre" placeholder=" " required autocomplete="name" />
+                  <label for="nombre-pro-top">Nombre y empresa</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+                  <input type="tel" id="telefono-pro-top" name="telefono" placeholder=" " required autocomplete="tel" />
+                  <label for="telefono-pro-top">Teléfono</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+                  <input type="email" id="email-pro-top" name="email" placeholder=" " required autocomplete="email" />
+                  <label for="email-pro-top">Correo electrónico</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                  <button type="submit" class="btn btn--primary">Solicitar cotización</button>
+                </div>
+                <p class="lead-form__note">No compartimos tu información con terceros.</p>
+              </div>
+
+            </div>
+          </form>
+
+          <div class="lead-card__divider">o si prefieres</div>
+
+          <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
             Escríbenos por WhatsApp
           </a>
-          <a data-phone-link href="#" class="btn btn--outline-pro">Llamar ahora</a>
         </div>
-        <ul class="pro-trustbar">
-          <li>Fabricación propia, sin subcontratistas</li>
-          <li>Cumplimiento de plazos de obra</li>
-          <li>Un solo punto de contacto técnico</li>
-        </ul>
       </div>
     </section>
 
-    <!-- ================= 5 CAPACIDADES ================= -->
+    <!-- ================= 6 CAPACIDADES ================= -->
     <section class="pro-capabilities">
       <div class="container">
         <span class="eyebrow" style="color: var(--color-bronze-deep);">Lo que fabricamos</span>
@@ -120,19 +203,137 @@
       </div>
     </section>
 
-    <!-- ================= CIERRE: LA PROMESA ================= -->
-    <section class="pro-close">
+    <!-- ================= CÓMO TRABAJAMOS CONTIGO ================= -->
+    <section class="pro-process">
       <div class="container">
-        <span class="eyebrow">Nuestra promesa</span>
-        <h2>Le damos vida a tus diseños y construcciones</h2>
-        <p>
-          La confianza de más de 30 años de experiencia trabajando con
-          constructores y arquitectos a realizar sus obras ha llegado al
-          Valle del Río Grande con Innovación Maderas.
-        </p>
-        <div class="pro-close__actions">
-          <a data-whatsapp-link href="#" target="_blank" rel="noopener" class="btn btn--gold">Escríbenos por WhatsApp</a>
-          <a data-phone-link href="#" class="btn btn--outline-pro">Llamar ahora</a>
+        <div class="section-head">
+          <span class="eyebrow">Cómo trabajamos contigo</span>
+          <h2>De tus planos a la instalación en obra</h2>
+          <p>Un proceso pensado para calzar con los tiempos de tu proyecto, no al revés.</p>
+        </div>
+        <div class="pro-steps">
+          <div class="pro-step">
+            <span class="pro-step__index">01</span>
+            <h3>Nos compartes planos o specs</h3>
+            <p>Envíanos planos, especificaciones o el alcance del proyecto — spec home, comercial o multifamiliar.</p>
+          </div>
+          <div class="pro-step">
+            <span class="pro-step__index">02</span>
+            <h3>Cotización y tiempos</h3>
+            <p>Te entregamos una cotización clara con tiempos de fabricación e instalación reales.</p>
+          </div>
+          <div class="pro-step">
+            <span class="pro-step__index">03</span>
+            <h3>Fabricación con seguimiento</h3>
+            <p>Fabricación propia en taller, con un solo punto de contacto técnico para dar seguimiento al avance.</p>
+          </div>
+          <div class="pro-step">
+            <span class="pro-step__index">04</span>
+            <h3>Instalación en obra</h3>
+            <p>Instalamos con nuestro propio equipo, coordinados con tu calendario de obra.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COTIZA TU PROYECTO (pitch + formulario) ================= -->
+    <section class="pro-quote">
+      <div class="container">
+        <div class="pro-quote__intro">
+          <span class="eyebrow">Cotiza tu proyecto con nosotros</span>
+          <h2>Le damos vida a tus diseños y construcciones</h2>
+          <p>
+            La confianza de más de 30 años de experiencia trabajando con
+            constructores y arquitectos a realizar sus obras ha llegado al
+            Valle del Río Grande con Innovación Maderas.
+          </p>
+          <ul class="pro-trustbar" style="margin-top: var(--space-4); border-top: none; padding-top: 0;">
+            <li>Fabricación propia, sin subcontratistas</li>
+            <li>Cumplimiento de plazos de obra</li>
+          </ul>
+        </div>
+
+        <div class="lead-card" id="cotizar-pro-close-card">
+          <div class="form-progress">
+            <div class="form-progress__label">
+              <span data-progress-label>Paso 1 de 2</span>
+              <span>Cotización de proyecto</span>
+            </div>
+            <div class="form-progress__track"><div class="form-progress__fill"></div></div>
+          </div>
+
+          <form class="lead-form" id="lead-form-pro-close" novalidate>
+            <input type="hidden" name="_subject" value="Nueva consulta — Arquitectos y Contratistas (Innovación Maderas)" />
+            <div class="form-steps">
+
+              <div class="form-step" data-step="1">
+                <h3 class="form-step__title">Tu proyecto</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <input type="text" id="zipcode-pro-close" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
+                  <label for="zipcode-pro-close">Código postal del proyecto</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field field--select" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
+                  <select id="servicio-pro-close" name="servicio" required>
+                    <option value="" selected disabled>Selecciona un tipo de proyecto</option>
+                    <option value="Proyecto residencial (spec home)">Proyecto residencial (spec home)</option>
+                    <option value="Proyecto comercial">Proyecto comercial</option>
+                    <option value="Proyecto multifamiliar">Proyecto multifamiliar</option>
+                    <option value="Remodelación">Remodelación</option>
+                    <option value="Otro tipo de proyecto">Otro tipo de proyecto</option>
+                  </select>
+                  <label for="servicio-pro-close">Tipo de proyecto</label>
+                </div>
+
+                <div class="form-nav" style="justify-content:flex-end;">
+                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
+                </div>
+              </div>
+
+              <div class="form-step" data-step="2">
+                <h3 class="form-step__title">Acerca de tu empresa</h3>
+
+                <div class="field">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                  <input type="text" id="nombre-pro-close" name="nombre" placeholder=" " required autocomplete="name" />
+                  <label for="nombre-pro-close">Nombre y empresa</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+                  <input type="tel" id="telefono-pro-close" name="telefono" placeholder=" " required autocomplete="tel" />
+                  <label for="telefono-pro-close">Teléfono</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="field" style="margin-top: var(--space-2);">
+                  <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+                  <input type="email" id="email-pro-close" name="email" placeholder=" " required autocomplete="email" />
+                  <label for="email-pro-close">Correo electrónico</label>
+                  <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
+                </div>
+
+                <div class="form-nav">
+                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                  <button type="submit" class="btn btn--primary">Solicitar cotización</button>
+                </div>
+                <p class="lead-form__note">No compartimos tu información con terceros.</p>
+              </div>
+
+            </div>
+          </form>
+
+          <div class="lead-card__divider">o si prefieres</div>
+
+          <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
         </div>
       </div>
     </section>
