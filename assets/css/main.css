@@ -195,6 +195,51 @@ h1, h2, h3, h4 {
   .header-call { display: inline-flex; }
 }
 
+/* Selector de idioma ES/EN */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 1px solid var(--border-on-dark);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--step-xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-ivory);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard);
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-gold);
+  background: rgba(244, 239, 228, 0.06);
+}
+
+.lang-toggle [data-lang-option] {
+  opacity: 0.5;
+  transition: opacity var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+
+.lang-toggle [data-lang-option].is-active {
+  opacity: 1;
+  color: var(--color-gold);
+}
+
+.lang-toggle__sep {
+  opacity: 0.35;
+}
+
+.lang-toggle--mobile {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  color: var(--color-gold-light);
+  border-color: var(--border-on-dark);
+}
+
 .nav-toggle {
   display: inline-flex;
   flex-direction: column;
