@@ -1,7 +1,5 @@
 // main.js — punto de entrada, compartido por todas las páginas del sitio.
 
-import { initI18n, t, getLang, onLanguageChange } from "./i18n.js";
-
 const CONTACT = {
   phoneDisplay: "+52 868 159 0133",
   phoneE164: "+528681590133",
@@ -14,7 +12,6 @@ const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.addEventListener("DOMContentLoaded", () => {
-  initI18n();
   wireContactNumbers();
   wireHeaderScroll();
   wireMobileNav();
@@ -173,15 +170,12 @@ function wireWhatsappMessage() {
   const serviceSelects = document.querySelectorAll('select[name="servicio"]');
 
   const buildLink = (servicio) => {
-    const base = t("wa.base");
-    const texto = servicio ? `${base} ${t("wa.interested")} ${servicio}.` : base;
+    const base = "Hola, me gustaría agendar una consulta de diseño con Innovación Maderas.";
+    const texto = servicio ? `${base} Estoy interesado en: ${servicio}.` : base;
     return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(texto)}`;
   };
 
-  let lastServicio = "";
-
   const refreshLinks = (servicio) => {
-    lastServicio = servicio;
     waLinks.forEach((link) => link.setAttribute("href", buildLink(servicio)));
   };
 
@@ -193,10 +187,6 @@ function wireWhatsappMessage() {
       refreshLinks(select.value);
     });
   });
-
-  // Si cambia el idioma, el mensaje prearmado de WhatsApp debe regenerarse
-  // (el texto base y "Estoy interesado en" cambian de idioma).
-  onLanguageChange(() => refreshLinks(lastServicio));
 }
 
 /**
@@ -228,11 +218,7 @@ function goToFormStep(form, step) {
   if (fill) fill.style.width = `${(step / totalSteps) * 100}%`;
 
   const label = card.querySelector("[data-progress-label]");
-  if (label) {
-    label.textContent = getLang() === "en"
-      ? `Step ${step} of ${totalSteps}`
-      : `Paso ${step} de ${totalSteps}`;
-  }
+  if (label) label.textContent = `Paso ${step} de ${totalSteps}`;
 }
 
 function stepIsValid(form, step) {
@@ -249,7 +235,7 @@ function stepIsValid(form, step) {
 
   const zipInput = activePanel.querySelector('input[name="zipcode"]');
   if (zipInput && !/^\d{5}$/.test(zipInput.value.trim())) {
-    zipInput.setCustomValidity(t("form.zipInvalid"));
+    zipInput.setCustomValidity("Ingresa un código postal válido de 5 dígitos.");
     zipInput.reportValidity();
     zipInput.setCustomValidity("");
     return false;
@@ -285,7 +271,7 @@ function wireMultiStepForm() {
       const originalLabel = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = t("form.sending");
+        submitBtn.textContent = "Enviando…";
       }
 
       try {
@@ -331,7 +317,7 @@ function showFormError(form, submitBtn, originalLabel) {
   }
 
   const data = Object.fromEntries(new FormData(form).entries());
-  errorEl.innerHTML = `${t("form.error.message")} <a href="${buildLeadMailto(data)}">${t("form.error.linkText")}</a>.`;
+  errorEl.innerHTML = `No pudimos enviar tu solicitud. Intenta de nuevo o <a href="${buildLeadMailto(data)}">escríbenos por correo</a>.`;
 }
 
 /**
@@ -340,15 +326,15 @@ function showFormError(form, submitBtn, originalLabel) {
  * silencioso a Formspree falla (ver showFormError).
  */
 function buildLeadMailto(data) {
-  const subject = `${t("mailto.subjectPrefix")} — ${data.servicio || t("mailto.subjectDefault")}`;
+  const subject = `Nueva consulta de diseño — ${data.servicio || "proyecto sin especificar"}`;
   const lines = [
-    `${t("mailto.nombre")}: ${data.nombre || "-"}`,
-    `${t("mailto.telefono")}: ${data.telefono || "-"}`,
-    `${t("mailto.zipcode")}: ${data.zipcode || "-"}`,
-    `${t("mailto.email")}: ${data.email || "-"}`,
-    `${t("mailto.servicio")}: ${data.servicio || "-"}`,
+    `Nombre: ${data.nombre || "-"}`,
+    `Teléfono: ${data.telefono || "-"}`,
+    `Código postal: ${data.zipcode || "-"}`,
+    `Correo: ${data.email || "-"}`,
+    `Servicio: ${data.servicio || "-"}`,
   ];
-  if (data.mensaje) lines.push(`${t("mailto.mensaje")}: ${data.mensaje}`);
+  if (data.mensaje) lines.push(`Mensaje: ${data.mensaje}`);
   const body = lines.join("\n");
   return `mailto:${CONTACT.leadEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -358,8 +344,11 @@ function showFormSuccess(form) {
   if (!card) return;
 
   card.innerHTML = `
-    <h3 class="form-step__title">${t("form.success.title")}</h3>
-    <p class="lead-card__subtitle">${t("form.success.subtitle")}</p>
+    <h3 class="form-step__title">¡Gracias! Ya recibimos tu solicitud.</h3>
+    <p class="lead-card__subtitle">
+      Un especialista de Innovación Maderas te contactará en menos de 24 horas
+      para agendar tu consulta de diseño sin costo.
+    </p>
   `;
 }
 
@@ -378,8 +367,8 @@ function wireCoverageCheck() {
 
     const isValidZip = /^\d{5}$/.test(input.value.trim());
     result.textContent = isValidZip
-      ? t("coverage.resultValid")
-      : t("coverage.resultInvalid");
+      ? "¡Buenas noticias! Damos servicio en tu zona. Completa el formulario para tu consulta de diseño."
+      : "Ingresa un código postal válido de 5 dígitos.";
     result.hidden = false;
   });
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n-title="meta.home.title">Ebanistería a la Medida en Brownsville TX | Innovación Maderas</title>
-  <meta name="description" data-i18n-content="meta.home.description" content="Cocinas, revestimientos de madera y centros de entretenimiento en madera fina, diseñados y fabricados por Innovación Maderas. Servimos Matamoros, Brownsville, Harlingen y todo el Valle del Río Grande. Consulta de diseño sin costo." />
+  <title>Ebanistería a la Medida en Brownsville TX | Innovación Maderas</title>
+  <meta name="description" content="Cocinas, revestimientos de madera y centros de entretenimiento en madera fina, diseñados y fabricados por Innovación Maderas. Servimos Matamoros, Brownsville, Harlingen y todo el Valle del Río Grande. Consulta de diseño sin costo." />
   <link rel="canonical" href="https://www.innovacionmaderas.com/" />
   <!-- TODO: reemplazar por la URL real cuando el dominio esté conectado (ver Prioridad 1 del informe SEO) -->
 
@@ -12,7 +12,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="assets/images/logo/logo.png" />
+  <link rel="icon" href="assets/images/logo/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/images/logo/favicon-16.png" sizes="16x16" />
+  <link rel="icon" href="assets/images/logo/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0d0b09" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Innovación Maderas" />
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/variables.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -57,11 +65,11 @@
       <img class="logo" src="assets/images/logo/logo.png" alt="Innovación Maderas" />
 
       <nav class="main-nav" aria-label="Navegación principal">
-        <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="#proceso" data-i18n="nav.proceso">Proceso</a>
-        <a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="#preguntas" data-i18n="nav.preguntas">Preguntas frecuentes</a>
-        <a class="nav-pro" href="pages/profesionales.html" data-i18n="nav.pro">Para arquitectos y contratistas</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <a class="nav-pro" href="pages/profesionales.html">Para arquitectos y contratistas</a>
       </nav>
 
       <div class="header-actions">
@@ -69,10 +77,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
           <span data-phone-display>(555) 123-4567</span>
         </a>
-        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Cambiar idioma / Switch language" data-i18n-aria-label="nav.langToggle">
-          <span data-lang-option="es">ES</span><span class="lang-toggle__sep">/</span><span data-lang-option="en">EN</span>
-        </button>
-        <button class="nav-toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.openMenu" aria-expanded="false">
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -80,14 +85,11 @@
   </header>
 
   <nav class="mobile-nav" aria-label="Navegación móvil">
-    <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
-    <a href="#proceso" data-i18n="nav.proceso">Proceso</a>
-    <a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a>
-    <a href="#preguntas" data-i18n="nav.preguntas">Preguntas frecuentes</a>
-    <a class="nav-pro" href="pages/profesionales.html" data-i18n="nav.pro">Para arquitectos y contratistas</a>
-    <button class="lang-toggle lang-toggle--mobile" type="button" data-lang-toggle aria-label="Cambiar idioma / Switch language" data-i18n-aria-label="nav.langToggle">
-      <span data-lang-option="es">ES</span><span class="lang-toggle__sep">/</span><span data-lang-option="en">EN</span>
-    </button>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#preguntas">Preguntas frecuentes</a>
+    <a class="nav-pro" href="pages/profesionales.html">Para arquitectos y contratistas</a>
   </nav>
 
   <main>
@@ -109,25 +111,30 @@
               <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
               <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
             </span>
-            <span data-i18n="hero.eyebrow">Ebanistería especializada en maderas finas</span>
+            <span>Ebanistería especializada en maderas finas</span>
           </div>
 
-          <h1 data-i18n="hero.h1">Ebanistería a la Medida en Brownsville y el Valle del Río Grande</h1>
-          <p class="lede" data-i18n="hero.lede">Piezas de ebanistería hechas para espacios que merecen ser únicos. Diseñamos, fabricamos e instalamos cocinas a la medida, revestimientos de madera y centros de entretenimiento en maderas finas — de principio a fin, con un solo equipo.</p>
+          <h1>Ebanistería a la Medida en Brownsville y el Valle del Río Grande</h1>
+          <p class="lede">
+            Piezas de ebanistería hechas para espacios que merecen ser únicos.
+            Diseñamos, fabricamos e instalamos cocinas a la medida,
+            revestimientos de madera y centros de entretenimiento en maderas
+            finas — de principio a fin, con un solo equipo.
+          </p>
         </div>
 
         <div class="hero__actions">
-          <a href="#cotizar-top" class="btn btn--outline" data-i18n="hero.cta">Agendar consulta de diseño</a>
-          <span class="hint" data-i18n="hero.hint">Sin costo · Respuesta en menos de 24 horas</span>
+          <a href="#cotizar-top" class="btn btn--outline">Agendar consulta de diseño</a>
+          <span class="hint">Sin costo · Respuesta en menos de 24 horas</span>
         </div>
 
         <p class="hero__pro-link">
-          <span data-i18n="hero.proQuestion">¿Eres arquitecto, diseñador de interiores o contratista?</span>
-          <a href="pages/profesionales.html" data-i18n="cta.proLink">Conoce cómo trabajamos contigo</a>.
+          ¿Eres arquitecto, diseñador de interiores o contratista?
+          <a href="pages/profesionales.html">Conoce cómo trabajamos contigo</a>.
         </p>
       </div>
 
-      <span class="scroll-cue" data-i18n="hero.scrollCue">Descubre más</span>
+      <span class="scroll-cue">Descubre más</span>
     </section>
 
     <!-- ================= CREDENCIALES (asimétrico) ================= -->
@@ -135,12 +142,12 @@
       <div class="container">
         <div class="stat--lead">
           <strong data-count-to="300" data-suffix="+">0+</strong>
-          <span data-i18n="stats.lead">proyectos entregados en el Valle del Río Grande Valley y Matamoros</span>
+          <span>proyectos entregados en el Valle del Río Grande Valley y Matamoros</span>
         </div>
         <div class="stats-minor">
-          <div class="stat-minor"><strong data-count-to="30" data-suffix="+">0+</strong><span data-i18n="stats.years">años de experiencia especializada</span></div>
-          <div class="stat-minor"><strong data-count-to="100" data-suffix="%">0%</strong><span data-i18n="stats.inhouse">diseño, fabricación e instalación propia</span></div>
-          <div class="stat-minor"><strong>ES / EN</strong><span data-i18n="stats.bilingual">atención bilingüe</span></div>
+          <div class="stat-minor"><strong data-count-to="30" data-suffix="+">0+</strong><span>años de experiencia especializada</span></div>
+          <div class="stat-minor"><strong data-count-to="100" data-suffix="%">0%</strong><span>diseño, fabricación e instalación propia</span></div>
+          <div class="stat-minor"><strong>ES / EN</strong><span>atención bilingüe</span></div>
         </div>
       </div>
     </section>
@@ -149,16 +156,16 @@
     <section class="section quick-consult" id="cotizar-top">
       <div class="container quick-consult__container">
         <div class="quick-consult__intro">
-          <span class="eyebrow" style="color:var(--color-gold);" data-i18n="cta.eyebrowStart">Empecemos</span>
-          <h2 data-i18n="quickConsult.h2">Agenda tu consulta de diseño</h2>
-          <p data-i18n="quickConsult.p">Sin costo. Cuéntanos tu proyecto y un especialista te contacta en menos de 24 horas.</p>
+          <span class="eyebrow" style="color:var(--color-gold);">Empecemos</span>
+          <h2>Agenda tu consulta de diseño</h2>
+          <p>Sin costo. Cuéntanos tu proyecto y un especialista te contacta en menos de 24 horas.</p>
         </div>
 
         <div class="lead-card" id="cotizar-top-card">
           <div class="form-progress">
             <div class="form-progress__label">
               <span data-progress-label>Paso 1 de 2</span>
-              <span data-i18n="form.progress.consulta">Consulta de diseño</span>
+              <span>Consulta de diseño</span>
             </div>
             <div class="form-progress__track"><div class="form-progress__fill"></div></div>
           </div>
@@ -167,74 +174,74 @@
             <div class="form-steps">
 
               <div class="form-step" data-step="1">
-                <h3 class="form-step__title" data-i18n="form.step1.title">Tu proyecto</h3>
+                <h3 class="form-step__title">Tu proyecto</h3>
 
                 <div class="field">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
                   <input type="text" id="zipcode-top" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
-                  <label for="zipcode-top" data-i18n="form.zipcode.label">Código postal</label>
+                  <label for="zipcode-top">Código postal</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field field--select" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
                   <select id="servicio-top" name="servicio" required>
-                    <option value="" selected disabled data-i18n="form.servicio.placeholder">Selecciona un servicio</option>
-                    <option value="Cocinas a la Medida" data-i18n="form.opt.cocinas">Cocinas a la Medida</option>
-                    <option value="Walk-in Closets" data-i18n="form.opt.closets">Walk-in Closets</option>
-                    <option value="Centros de Entretenimiento" data-i18n="form.opt.entretenimiento">Centros de Entretenimiento</option>
-                    <option value="Puertas y Molduras" data-i18n="form.opt.puertas">Puertas y Molduras</option>
-                    <option value="Escaleras" data-i18n="form.opt.escaleras">Escaleras</option>
-                    <option value="Revestimientos de Madera" data-i18n="form.opt.revestimientos">Revestimientos de Madera</option>
-                    <option value="Otro proyecto de ebanistería" data-i18n="form.opt.otro">Otro proyecto de ebanistería</option>
+                    <option value="" selected disabled>Selecciona un servicio</option>
+                    <option value="Cocinas a la Medida">Cocinas a la Medida</option>
+                    <option value="Walk-in Closets">Walk-in Closets</option>
+                    <option value="Centros de Entretenimiento">Centros de Entretenimiento</option>
+                    <option value="Puertas y Molduras">Puertas y Molduras</option>
+                    <option value="Escaleras">Escaleras</option>
+                    <option value="Revestimientos de Madera">Revestimientos de Madera</option>
+                    <option value="Otro proyecto de ebanistería">Otro proyecto de ebanistería</option>
                   </select>
-                  <label for="servicio-top" data-i18n="form.servicio.label">Servicio requerido</label>
+                  <label for="servicio-top">Servicio requerido</label>
                 </div>
 
                 <div class="form-nav" style="justify-content:flex-end;">
-                  <button type="button" class="btn btn--primary" data-step-next data-i18n="form.continue">Continuar</button>
+                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
                 </div>
               </div>
 
               <div class="form-step" data-step="2">
-                <h3 class="form-step__title" data-i18n="form.step2.title">Acerca de ti</h3>
+                <h3 class="form-step__title">Acerca de ti</h3>
 
                 <div class="field">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
                   <input type="text" id="nombre-top" name="nombre" placeholder=" " required autocomplete="name" />
-                  <label for="nombre-top" data-i18n="form.nombre.label">Nombre completo</label>
+                  <label for="nombre-top">Nombre completo</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
                   <input type="tel" id="telefono-top" name="telefono" placeholder=" " required autocomplete="tel" />
-                  <label for="telefono-top" data-i18n="form.telefono.label">Teléfono</label>
+                  <label for="telefono-top">Teléfono</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
                   <input type="email" id="email-top" name="email" placeholder=" " required autocomplete="email" />
-                  <label for="email-top" data-i18n="form.email.label">Correo electrónico</label>
+                  <label for="email-top">Correo electrónico</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="form-nav">
-                  <button type="button" class="btn btn--ghost" data-step-back data-i18n="form.back">Atrás</button>
-                  <button type="submit" class="btn btn--primary" data-i18n="form.submit.consulta">Solicitar consulta de diseño</button>
+                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                  <button type="submit" class="btn btn--primary">Solicitar consulta de diseño</button>
                 </div>
-                <p class="lead-form__note" data-i18n="form.note">No compartimos tu información con terceros.</p>
+                <p class="lead-form__note">No compartimos tu información con terceros.</p>
               </div>
 
             </div>
           </form>
 
-          <div class="lead-card__divider" data-i18n="form.divider">o si prefieres</div>
+          <div class="lead-card__divider">o si prefieres</div>
 
           <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
-            <span data-i18n="form.whatsapp">Escríbenos por WhatsApp</span>
+            Escríbenos por WhatsApp
           </a>
         </div>
       </div>
@@ -244,8 +251,8 @@
     <section class="section services-section" id="servicios">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="services.eyebrow">Nuestra especialidad</span>
-          <h2 data-i18n="services.h2">Cocinas a la medida, revestimientos de madera y centros de entretenimiento</h2>
+          <span class="eyebrow">Nuestra especialidad</span>
+          <h2>Cocinas a la medida, revestimientos de madera y centros de entretenimiento</h2>
         </div>
 
         <div class="service-row" data-service-value="Cocinas a la Medida">
@@ -253,9 +260,9 @@
             <img src="assets/images/content/cocina-a-la-medida-mcallen-tx.jpg" alt="Cocina a la medida fabricada por Innovación Maderas en McAllen, TX" loading="lazy" />
           </div>
           <div class="service-row__body">
-            <h3 data-i18n="service.cocinas.h3">Cocinas a la Medida</h3>
-            <p data-i18n="service.cocinas.p">Gabinetes, islas y acabados diseñados y fabricados a la medida exacta de tu espacio, en maderas finas seleccionadas.</p>
-            <span class="service-row__cta" data-i18n="service.cocinas.cta">Agendar consulta para mi cocina</span>
+            <h3>Cocinas a la Medida</h3>
+            <p>Gabinetes, islas y acabados diseñados y fabricados a la medida exacta de tu espacio, en maderas finas seleccionadas.</p>
+            <span class="service-row__cta">Agendar consulta para mi cocina</span>
           </div>
         </div>
 
@@ -264,9 +271,9 @@
             <img src="assets/images/content/revestimientos-madera-lobby-mcallen-tx.jpg" alt="Revestimiento de madera en lambrín fabricado por Innovación Maderas en McAllen, TX" loading="lazy" />
           </div>
           <div class="service-row__body">
-            <h3 data-i18n="service.revestimientos.h3">Revestimientos de Madera</h3>
-            <p data-i18n="service.revestimientos.p">Paneles y lambrín de madera para paredes, recepciones y muebles empotrados: calidez arquitectónica que distingue el espacio.</p>
-            <span class="service-row__cta" data-i18n="service.revestimientos.cta">Agendar consulta para mi revestimiento</span>
+            <h3>Revestimientos de Madera</h3>
+            <p>Paneles y lambrín de madera para paredes, recepciones y muebles empotrados: calidez arquitectónica que distingue el espacio.</p>
+            <span class="service-row__cta">Agendar consulta para mi revestimiento</span>
           </div>
         </div>
 
@@ -275,19 +282,19 @@
             <img src="assets/images/content/centro-entretenimiento-mcallen-tx.jpg" alt="Centro de entretenimiento a la medida fabricado por Innovación Maderas en McAllen, TX" loading="lazy" />
           </div>
           <div class="service-row__body">
-            <h3 data-i18n="service.entretenimiento.h3">Centros de Entretenimiento</h3>
-            <p data-i18n="service.entretenimiento.p">Muebles integrados a la arquitectura de tu sala, con soluciones de cableado y almacenamiento resueltas desde el diseño.</p>
-            <span class="service-row__cta" data-i18n="service.entretenimiento.cta">Agendar consulta para mi sala</span>
+            <h3>Centros de Entretenimiento</h3>
+            <p>Muebles integrados a la arquitectura de tu sala, con soluciones de cableado y almacenamiento resueltas desde el diseño.</p>
+            <span class="service-row__cta">Agendar consulta para mi sala</span>
           </div>
         </div>
 
         <div class="services-catalog">
-          <h4 data-i18n="services.catalog.h4">También fabricamos</h4>
+          <h4>También fabricamos</h4>
           <ul>
-            <li><button type="button" data-service-value="Puertas y Molduras" data-i18n="services.catalog.puertas">Puertas y molduras a medida</button></li>
-            <li><button type="button" data-service-value="Escaleras" data-i18n="services.catalog.escaleras">Escaleras en madera</button></li>
-            <li><button type="button" data-service-value="Walk-in Closets" data-i18n="services.catalog.closets">Walk-in closets</button></li>
-            <li><button type="button" data-service-value="Otro proyecto de ebanistería" data-i18n="services.catalog.otro">Otro proyecto de ebanistería</button></li>
+            <li><button type="button" data-service-value="Puertas y Molduras">Puertas y molduras a medida</button></li>
+            <li><button type="button" data-service-value="Escaleras">Escaleras en madera</button></li>
+            <li><button type="button" data-service-value="Walk-in Closets">Walk-in closets</button></li>
+            <li><button type="button" data-service-value="Otro proyecto de ebanistería">Otro proyecto de ebanistería</button></li>
           </ul>
         </div>
       </div>
@@ -297,37 +304,37 @@
     <section class="section process-section on-dark" id="proceso">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="process.eyebrow">Cómo trabajamos</span>
-          <h2 data-i18n="process.h2">Nuestro proceso: de la consulta a la instalación</h2>
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2>Nuestro proceso: de la consulta a la instalación</h2>
         </div>
 
         <div class="process-list">
           <div class="process-step">
             <span class="process-step__index">01</span>
             <div>
-              <h3 data-i18n="process.step1.h3">Consulta de diseño</h3>
-              <p data-i18n="process.step1.p">Platicamos tu proyecto, tu espacio y tu estilo. Sin costo ni compromiso.</p>
+              <h3>Consulta de diseño</h3>
+              <p>Platicamos tu proyecto, tu espacio y tu estilo. Sin costo ni compromiso.</p>
             </div>
           </div>
           <div class="process-step">
             <span class="process-step__index">02</span>
             <div>
-              <h3 data-i18n="process.step2.h3">Diseño y render 3D</h3>
-              <p data-i18n="process.step2.p">Visualizas tu cocina, revestimiento o centro de entretenimiento terminado antes de que empecemos a fabricarlo, y ajustamos cada detalle contigo.</p>
+              <h3>Diseño y render 3D</h3>
+              <p>Visualizas tu cocina, revestimiento o centro de entretenimiento terminado antes de que empecemos a fabricarlo, y ajustamos cada detalle contigo.</p>
             </div>
           </div>
           <div class="process-step">
             <span class="process-step__index">03</span>
             <div>
-              <h3 data-i18n="process.step3.h3">Fabricación propia</h3>
-              <p data-i18n="process.step3.p">Construimos tu proyecto en nuestro taller, con maderas finas y procesos de tratamiento especializados.</p>
+              <h3>Fabricación propia</h3>
+              <p>Construimos tu proyecto en nuestro taller, con maderas finas y procesos de tratamiento especializados.</p>
             </div>
           </div>
           <div class="process-step">
             <span class="process-step__index">04</span>
             <div>
-              <h3 data-i18n="process.step4.h3">Instalación y garantía</h3>
-              <p data-i18n="process.step4.p">Instalamos con nuestro propio equipo y respaldamos el trabajo con garantía por escrito.</p>
+              <h3>Instalación y garantía</h3>
+              <p>Instalamos con nuestro propio equipo y respaldamos el trabajo con garantía por escrito.</p>
             </div>
           </div>
         </div>
@@ -338,36 +345,36 @@
     <section class="section portfolio-section" id="proyectos">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="portfolio.eyebrow">Portafolio</span>
-          <h2 data-i18n="portfolio.h2">Proyectos recientes en el Valle del Río Grande</h2>
-          <p class="portfolio-note" data-i18n="portfolio.note">Estamos documentando cada proyecto entregado. Pasa el cursor sobre los que ya tienen fotografía.</p>
+          <span class="eyebrow">Portafolio</span>
+          <h2>Proyectos recientes en el Valle del Río Grande</h2>
+          <p class="portfolio-note">Estamos documentando cada proyecto entregado. Pasa el cursor sobre los que ya tienen fotografía.</p>
         </div>
 
         <div class="portfolio-index">
           <div class="portfolio-entry portfolio-entry--has-photo">
-            <span class="portfolio-entry__name" data-i18n="portfolio.entry1.name">Cocina a la Medida</span>
-            <span class="portfolio-entry__meta" data-i18n="portfolio.entry1.meta">Proyecto residencial — McAllen, TX</span>
+            <span class="portfolio-entry__name">Cocina a la Medida</span>
+            <span class="portfolio-entry__meta">Proyecto residencial — McAllen, TX</span>
             <div class="portfolio-entry__thumb">
               <img src="assets/images/content/cocina-a-la-medida-matamoros-brownsville-tx.jpg" alt="Cocina a la medida entregada por Innovación Maderas en el Valle del Río Grande" loading="lazy" />
             </div>
           </div>
           <div class="portfolio-entry portfolio-entry--has-photo">
-            <span class="portfolio-entry__name" data-i18n="portfolio.entry2.name">Revestimientos de Madera</span>
-            <span class="portfolio-entry__meta" data-i18n="portfolio.entry2.meta">Recepción comercial — McAllen, TX</span>
+            <span class="portfolio-entry__name">Revestimientos de Madera</span>
+            <span class="portfolio-entry__meta">Recepción comercial — McAllen, TX</span>
             <div class="portfolio-entry__thumb">
               <img src="assets/images/content/revestimientos-madera-lobby-mcallen-tx.jpg" alt="Revestimiento de madera en recepción comercial fabricado por Innovación Maderas en McAllen, TX" loading="lazy" />
             </div>
           </div>
           <div class="portfolio-entry portfolio-entry--has-photo">
-            <span class="portfolio-entry__name" data-i18n="portfolio.entry3.name">Centro de Entretenimiento</span>
-            <span class="portfolio-entry__meta" data-i18n="portfolio.entry3.meta">Proyecto residencial — McAllen, TX</span>
+            <span class="portfolio-entry__name">Centro de Entretenimiento</span>
+            <span class="portfolio-entry__meta">Proyecto residencial — McAllen, TX</span>
             <div class="portfolio-entry__thumb">
               <img src="assets/images/content/centro-entretenimiento-mcallen-tx.jpg" alt="Centro de entretenimiento a la medida fabricado por Innovación Maderas en McAllen, TX" loading="lazy" />
             </div>
           </div>
           <div class="portfolio-entry portfolio-entry--has-photo">
-            <span class="portfolio-entry__name" data-i18n="portfolio.entry4.name">Molduras y Paneles de Pared</span>
-            <span class="portfolio-entry__meta" data-i18n="portfolio.entry4.meta">Proyecto residencial — Brownsville, TX</span>
+            <span class="portfolio-entry__name">Molduras y Paneles de Pared</span>
+            <span class="portfolio-entry__meta">Proyecto residencial — Brownsville, TX</span>
             <div class="portfolio-entry__thumb">
               <img src="assets/images/content/molduras-pared-brownsville-tx.jpg" alt="Molduras y paneles de pared a la medida fabricados por Innovación Maderas en Brownsville, TX" loading="lazy" />
             </div>
@@ -380,9 +387,9 @@
     <section class="section coverage-section">
       <div class="container">
         <div class="section-head on-dark">
-          <span class="eyebrow" data-i18n="coverage.eyebrow">Área de servicio</span>
-          <h2 data-i18n="coverage.h2">Zonas que atendemos en el Valle del Río Grande</h2>
-          <p data-i18n="coverage.p">¿Trabajamos en tu zona? Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y todo el Valle del Río Grande.</p>
+          <span class="eyebrow">Área de servicio</span>
+          <h2>Zonas que atendemos en el Valle del Río Grande</h2>
+          <p>¿Trabajamos en tu zona? Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y todo el Valle del Río Grande.</p>
         </div>
 
         <div class="coverage-list">
@@ -391,12 +398,12 @@
           <span>Harlingen</span>
           <span>McAllen</span>
           <span>San Juan</span>
-          <span data-i18n="coverage.valleyLabel">Valle del Río Grande</span>
+          <span>Valle del Río Grande</span>
         </div>
 
         <form class="coverage-check" id="coverage-form">
-          <input type="text" placeholder="Tu código postal" data-i18n-placeholder="coverage.placeholder" inputmode="numeric" maxlength="5" aria-label="Código postal" data-i18n-aria-label="coverage.ariaLabel" />
-          <button type="submit" class="btn btn--gold" data-i18n="coverage.button">Verificar cobertura</button>
+          <input type="text" placeholder="Tu código postal" inputmode="numeric" maxlength="5" aria-label="Código postal" />
+          <button type="submit" class="btn btn--gold">Verificar cobertura</button>
         </form>
         <p data-coverage-result hidden style="margin-top: 1rem; max-width: 46ch;"></p>
       </div>
@@ -406,8 +413,8 @@
     <section class="section testimonials-section" id="testimonios">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="testimonials.eyebrow">Clientes</span>
-          <h2 data-i18n="testimonials.h2">Lo que dicen nuestros clientes</h2>
+          <span class="eyebrow">Clientes</span>
+          <h2>Lo que dicen nuestros clientes</h2>
         </div>
 
         <div class="testimonial-list">
@@ -416,9 +423,9 @@
               <div class="stars">
                 <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
               </div>
-              <blockquote data-i18n="testimonial1.quote">"Diseñaron e instalaron la cocina completa de nuestra casa. El nivel de detalle en los acabados fue exactamente lo que buscábamos."</blockquote>
+              <blockquote>"Diseñaron e instalaron la cocina completa de nuestra casa. El nivel de detalle en los acabados fue exactamente lo que buscábamos."</blockquote>
             </div>
-            <p class="author"><strong data-i18n="testimonial.clientLabel">Cliente residencial</strong>McAllen, TX</p>
+            <p class="author"><strong>Cliente residencial</strong>McAllen, TX</p>
           </article>
 
           <article class="testimonial-entry">
@@ -426,9 +433,9 @@
               <div class="stars">
                 <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
               </div>
-              <blockquote data-i18n="testimonial2.quote">"El walk-in closet quedó como un mueble de diseño, no como una simple repisa. Superó lo que imaginamos en el render."</blockquote>
+              <blockquote>"El walk-in closet quedó como un mueble de diseño, no como una simple repisa. Superó lo que imaginamos en el render."</blockquote>
             </div>
-            <p class="author"><strong data-i18n="testimonial.clientLabel">Cliente residencial</strong>Harlingen, TX</p>
+            <p class="author"><strong>Cliente residencial</strong>Harlingen, TX</p>
           </article>
 
           <article class="testimonial-entry">
@@ -436,9 +443,9 @@
               <div class="stars">
                 <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1L5.8 11.8 1 7.5l6.4-.6L10 1z"/></svg>
               </div>
-              <blockquote data-i18n="testimonial3.quote">"El centro de entretenimiento se integró perfecto con la arquitectura de la sala; parece que siempre estuvo ahí."</blockquote>
+              <blockquote>"El centro de entretenimiento se integró perfecto con la arquitectura de la sala; parece que siempre estuvo ahí."</blockquote>
             </div>
-            <p class="author"><strong data-i18n="testimonial.clientLabel">Cliente residencial</strong>Brownsville, TX</p>
+            <p class="author"><strong>Cliente residencial</strong>Brownsville, TX</p>
           </article>
         </div>
       </div>
@@ -448,34 +455,34 @@
     <section class="section faq-section" id="preguntas">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</span>
-          <h2 data-i18n="faq.h2">Preguntas frecuentes sobre ebanistería a la medida</h2>
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Preguntas frecuentes sobre ebanistería a la medida</h2>
         </div>
 
         <div class="faq-list">
           <details class="faq-item">
-            <summary><span data-i18n="faq.q1">¿Cuánto cuesta un proyecto de ebanistería a medida?</span><span class="icon"></span></summary>
-            <p data-i18n="faq.a1">Cada proyecto es distinto: depende del tamaño, la madera y el nivel de detalle. En tu consulta de diseño, sin costo, te damos una cotización precisa basada en tu proyecto real, no un estimado genérico.</p>
+            <summary>¿Cuánto cuesta un proyecto de ebanistería a medida?<span class="icon"></span></summary>
+            <p>Cada proyecto es distinto: depende del tamaño, la madera y el nivel de detalle. En tu consulta de diseño, sin costo, te damos una cotización precisa basada en tu proyecto real, no un estimado genérico.</p>
           </details>
           <details class="faq-item">
-            <summary><span data-i18n="faq.q2">¿Cuánto tiempo toma diseñar y fabricar mi proyecto?</span><span class="icon"></span></summary>
-            <p data-i18n="faq.a2">Después de aprobar el diseño y el render, la fabricación e instalación suele tomar varias semanas, dependiendo de la complejidad. Te damos un tiempo estimado exacto en tu cotización.</p>
+            <summary>¿Cuánto tiempo toma diseñar y fabricar mi proyecto?<span class="icon"></span></summary>
+            <p>Después de aprobar el diseño y el render, la fabricación e instalación suele tomar varias semanas, dependiendo de la complejidad. Te damos un tiempo estimado exacto en tu cotización.</p>
           </details>
           <details class="faq-item">
-            <summary><span data-i18n="faq.q3">¿Qué significa trabajar con "maderas finas"?</span><span class="icon"></span></summary>
-            <p data-i18n="faq.a3">Seleccionamos especies y procesos de tratamiento pensados para durabilidad, estabilidad y un acabado que no se consigue con materiales genéricos de carpintería de construcción.</p>
+            <summary>¿Qué significa trabajar con "maderas finas"?<span class="icon"></span></summary>
+            <p>Seleccionamos especies y procesos de tratamiento pensados para durabilidad, estabilidad y un acabado que no se consigue con materiales genéricos de carpintería de construcción.</p>
           </details>
           <details class="faq-item">
-            <summary><span data-i18n="faq.q4">¿Trabajan con arquitectos, diseñadores o contratistas?</span><span class="icon"></span></summary>
-            <p data-i18n-html="faq.a4.html">Sí. Además de proyectos residenciales, somos proveedor especializado de ebanistería para arquitectos, diseñadores de interiores, contratistas y constructores. <a href="pages/profesionales.html" style="text-decoration:underline;">Conoce cómo trabajamos contigo</a>.</p>
+            <summary>¿Trabajan con arquitectos, diseñadores o contratistas?<span class="icon"></span></summary>
+            <p>Sí. Además de proyectos residenciales, somos proveedor especializado de ebanistería para arquitectos, diseñadores de interiores, contratistas y constructores. <a href="pages/profesionales.html" style="text-decoration:underline;">Conoce cómo trabajamos contigo</a>.</p>
           </details>
           <details class="faq-item">
-            <summary><span data-i18n="faq.q5">¿En qué ciudades dan servicio?</span><span class="icon"></span></summary>
-            <p data-i18n="faq.a5">Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y el resto del Valle del Río Grande.</p>
+            <summary>¿En qué ciudades dan servicio?<span class="icon"></span></summary>
+            <p>Damos servicio en Matamoros, Brownsville, Harlingen, McAllen, San Juan y el resto del Valle del Río Grande.</p>
           </details>
           <details class="faq-item">
-            <summary><span data-i18n="faq.q6">¿Ofrecen garantía?</span><span class="icon"></span></summary>
-            <p data-i18n="faq.a6">Sí. Todo proyecto incluye garantía por escrito sobre materiales y mano de obra, con los términos detallados en tu contrato.</p>
+            <summary>¿Ofrecen garantía?<span class="icon"></span></summary>
+            <p>Sí. Todo proyecto incluye garantía por escrito sobre materiales y mano de obra, con los términos detallados en tu contrato.</p>
           </details>
         </div>
       </div>
@@ -485,17 +492,17 @@
     <section class="section final-section" id="cotizar-form">
       <div class="container final-grid">
         <div class="final-copy">
-          <span class="eyebrow" style="color:var(--color-gold);" data-i18n="cta.eyebrowStart">Empecemos</span>
-          <h2 data-i18n="final.h2">Solicita tu consulta de diseño gratuita</h2>
-          <p data-i18n="final.p">Diseñemos juntos tu próxima pieza de ebanistería. Agenda tu consulta de diseño sin costo y recibe respuesta en menos de 24 horas.</p>
-          <p class="final-copy__pro"><span data-i18n="hero.proQuestion">¿Eres arquitecto, diseñador de interiores o contratista?</span> <a href="pages/profesionales.html" data-i18n="cta.proLink">Conoce cómo trabajamos contigo</a>.</p>
+          <span class="eyebrow" style="color:var(--color-gold);">Empecemos</span>
+          <h2>Solicita tu consulta de diseño gratuita</h2>
+          <p>Diseñemos juntos tu próxima pieza de ebanistería. Agenda tu consulta de diseño sin costo y recibe respuesta en menos de 24 horas.</p>
+          <p class="final-copy__pro">¿Eres arquitecto, diseñador de interiores o contratista? <a href="pages/profesionales.html">Conoce cómo trabajamos contigo</a>.</p>
         </div>
 
         <div class="lead-card" id="cotizar-final">
           <div class="form-progress">
             <div class="form-progress__label">
               <span data-progress-label>Paso 1 de 2</span>
-              <span data-i18n="form.progress.consulta">Consulta de diseño</span>
+              <span>Consulta de diseño</span>
             </div>
             <div class="form-progress__track"><div class="form-progress__fill"></div></div>
           </div>
@@ -504,74 +511,74 @@
             <div class="form-steps">
 
               <div class="form-step" data-step="1">
-                <h3 class="form-step__title" data-i18n="form.step1.title">Tu proyecto</h3>
+                <h3 class="form-step__title">Tu proyecto</h3>
 
                 <div class="field">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
                   <input type="text" id="zipcode-final" name="zipcode" placeholder=" " inputmode="numeric" maxlength="5" required autocomplete="postal-code" />
-                  <label for="zipcode-final" data-i18n="form.zipcode.label">Código postal</label>
+                  <label for="zipcode-final">Código postal</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field field--select" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21l3.5-1L19 8.5a1.5 1.5 0 0 0 0-2.1l-1.4-1.4a1.5 1.5 0 0 0-2.1 0L4 15.5 3 21z"/></svg>
                   <select id="servicio-final" name="servicio" required>
-                    <option value="" selected disabled data-i18n="form.servicio.placeholder">Selecciona un servicio</option>
-                    <option value="Cocinas a la Medida" data-i18n="form.opt.cocinas">Cocinas a la Medida</option>
-                    <option value="Walk-in Closets" data-i18n="form.opt.closets">Walk-in Closets</option>
-                    <option value="Centros de Entretenimiento" data-i18n="form.opt.entretenimiento">Centros de Entretenimiento</option>
-                    <option value="Puertas y Molduras" data-i18n="form.opt.puertas">Puertas y Molduras</option>
-                    <option value="Escaleras" data-i18n="form.opt.escaleras">Escaleras</option>
-                    <option value="Revestimientos de Madera" data-i18n="form.opt.revestimientos">Revestimientos de Madera</option>
-                    <option value="Otro proyecto de ebanistería" data-i18n="form.opt.otro">Otro proyecto de ebanistería</option>
+                    <option value="" selected disabled>Selecciona un servicio</option>
+                    <option value="Cocinas a la Medida">Cocinas a la Medida</option>
+                    <option value="Walk-in Closets">Walk-in Closets</option>
+                    <option value="Centros de Entretenimiento">Centros de Entretenimiento</option>
+                    <option value="Puertas y Molduras">Puertas y Molduras</option>
+                    <option value="Escaleras">Escaleras</option>
+                    <option value="Revestimientos de Madera">Revestimientos de Madera</option>
+                    <option value="Otro proyecto de ebanistería">Otro proyecto de ebanistería</option>
                   </select>
-                  <label for="servicio-final" data-i18n="form.servicio.label">Servicio requerido</label>
+                  <label for="servicio-final">Servicio requerido</label>
                 </div>
 
                 <div class="form-nav" style="justify-content:flex-end;">
-                  <button type="button" class="btn btn--primary" data-step-next data-i18n="form.continue">Continuar</button>
+                  <button type="button" class="btn btn--primary" data-step-next>Continuar</button>
                 </div>
               </div>
 
               <div class="form-step" data-step="2">
-                <h3 class="form-step__title" data-i18n="form.step2.title">Acerca de ti</h3>
+                <h3 class="form-step__title">Acerca de ti</h3>
 
                 <div class="field">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
                   <input type="text" id="nombre-final" name="nombre" placeholder=" " required autocomplete="name" />
-                  <label for="nombre-final" data-i18n="form.nombre.label">Nombre completo</label>
+                  <label for="nombre-final">Nombre completo</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
                   <input type="tel" id="telefono-final" name="telefono" placeholder=" " required autocomplete="tel" />
-                  <label for="telefono-final" data-i18n="form.telefono.label">Teléfono</label>
+                  <label for="telefono-final">Teléfono</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="field" style="margin-top: var(--space-2);">
                   <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
                   <input type="email" id="email-final" name="email" placeholder=" " required autocomplete="email" />
-                  <label for="email-final" data-i18n="form.email.label">Correo electrónico</label>
+                  <label for="email-final">Correo electrónico</label>
                   <svg class="field__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l6 6L20 6"/></svg>
                 </div>
 
                 <div class="form-nav">
-                  <button type="button" class="btn btn--ghost" data-step-back data-i18n="form.back">Atrás</button>
-                  <button type="submit" class="btn btn--primary" data-i18n="form.submit.consulta">Solicitar consulta de diseño</button>
+                  <button type="button" class="btn btn--ghost" data-step-back>Atrás</button>
+                  <button type="submit" class="btn btn--primary">Solicitar consulta de diseño</button>
                 </div>
-                <p class="lead-form__note" data-i18n="form.note">No compartimos tu información con terceros.</p>
+                <p class="lead-form__note">No compartimos tu información con terceros.</p>
               </div>
 
             </div>
           </form>
 
-          <div class="lead-card__divider" data-i18n="form.divider">o si prefieres</div>
+          <div class="lead-card__divider">o si prefieres</div>
 
           <a class="btn btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
-            <span data-i18n="form.whatsapp">Escríbenos por WhatsApp</span>
+            Escríbenos por WhatsApp
           </a>
         </div>
       </div>
@@ -583,43 +590,47 @@
       <div class="footer-grid">
         <div>
           <img class="logo" src="assets/images/logo/logo.png" alt="Innovación Maderas" />
-          <p style="margin-top: var(--space-2); max-width: 40ch;" data-i18n="footer.homeAbout">Ebanistería especializada en maderas finas. Diseñamos, fabricamos e instalamos cocinas, revestimientos de madera y centros de entretenimiento a la medida, con garantía por escrito y equipo propio.</p>
+          <p style="margin-top: var(--space-2); max-width: 40ch;">
+            Ebanistería especializada en maderas finas. Diseñamos, fabricamos
+            e instalamos cocinas, revestimientos de madera y centros de
+            entretenimiento a la medida, con garantía por escrito y equipo propio.
+          </p>
         </div>
         <div>
-          <h4 data-i18n="footer.company">Compañía</h4>
+          <h4>Compañía</h4>
           <ul>
-            <li><a href="#proceso" data-i18n="footer.linkProceso">Nuestro proceso</a></li>
-            <li><a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a></li>
-            <li><a href="#preguntas" data-i18n="nav.preguntas">Preguntas frecuentes</a></li>
-            <li><a href="pages/profesionales.html" data-i18n="nav.pro">Para arquitectos y contratistas</a></li>
+            <li><a href="#proceso">Nuestro proceso</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            <li><a href="pages/profesionales.html">Para arquitectos y contratistas</a></li>
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.contact">Contacto</h4>
+          <h4>Contacto</h4>
           <ul>
-            <li><a data-phone-link href="#"><span data-i18n="footer.callLabel">Llamar: </span><span data-phone-display>(555) 123-4567</span></a></li>
+            <li><a data-phone-link href="#">Llamar: <span data-phone-display>(555) 123-4567</span></a></li>
             <li><a data-whatsapp-link href="#" target="_blank" rel="noopener">WhatsApp</a></li>
             <li><a href="mailto:hola@innovacionmaderas.com">hola@innovacionmaderas.com</a></li>
-            <li data-i18n="footer.cities">Matamoros · Brownsville · Harlingen · McAllen · RGV</li>
+            <li>Matamoros · Brownsville · Harlingen · McAllen · RGV</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span data-i18n="footer.rights">© 2026 Innovación Maderas. Todos los derechos reservados.</span>
-        <span data-i18n="footer.tagline">Ebanistería especializada · Diseño, fabricación e instalación propia</span>
+        <span>© 2026 Innovación Maderas. Todos los derechos reservados.</span>
+        <span>Ebanistería especializada · Diseño, fabricación e instalación propia</span>
       </div>
     </div>
   </footer>
 
   <div class="floating-actions">
-    <a class="floating-btn floating-btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-aria-label="floating.whatsappLabel">
+    <a class="floating-btn floating-btn--whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <a class="floating-btn floating-btn--call" data-phone-link href="#" aria-label="Llamar ahora a Innovación Maderas" data-i18n-aria-label="floating.callLabel">
+    <a class="floating-btn floating-btn--call" data-phone-link href="#" aria-label="Llamar ahora a Innovación Maderas">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
-      <span data-i18n="floating.call">Llamar ahora</span>
+      <span>Llamar ahora</span>
     </a>
   </div>
 
